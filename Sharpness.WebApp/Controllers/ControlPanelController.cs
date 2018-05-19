@@ -87,5 +87,12 @@ namespace Sharpness.WebApp.Controllers
 
             return RedirectToAction("Report", new {Link=reportLink});
         }
+
+
+        public ActionResult Report2(string Link)
+        {
+            ViewBag.ViewerLink = "http://localhost:5000/Sharpness_WebApp_Uploads/" + Link;
+            return View();
+        }
     }
 }

@@ -532,6 +532,9 @@
     <Content Include="start_assets\js\paper-kit.js" />
     <Content Include="start_assets\js\popper.js" />
     <Content Include="TestImg\channels.png" />
+    <Content Include="TestImg\CMU-1.png" />
+    <Content Include="TestImg\CMU-2.png" />
+    <Content Include="TestImg\data1.png" />
     <Content Include="TestImg\placeholder.png" />
     <Content Include="TestImg\semaphore.png" />
     <Content Include="Web.config" />
@@ -590,7 +593,6 @@
     <Content Include="Views\Shared\_LayoutRegister.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\ControlPanel\Index.cshtml" />
-    <Content Include="Views\ControlPanel\Report.cshtml" />
     <Content Include="Views\AdminDashboard\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutPage.cshtml" />
     <Content Include="Views\Def\Sample.cshtml" />
@@ -598,6 +600,7 @@
     <Content Include="Views\AdminDashboard\WSIs.cshtml" />
     <Content Include="Views\AdminDashboard\Users.cshtml" />
     <Content Include="Views\Def\Sample2.cshtml" />
+    <Content Include="Views\ControlPanel\Report.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,22 +1,71 @@
 ﻿
 @{
-    ViewBag.Title = "Report";
+    ViewBag.Title = "Report2";
     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
 }
 
-<div class="animated fadeIn">
-    <div class="row">
-   
-        
-            <iframe width="750" height="550" src="@ViewBag.ViewerLink"></iframe>
-        
-                        
-                        
-        
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Report of WSI</strong>
+            </div>
+            <div class="card-body">
+                
+                <iframe style="width:59%; height:550px" src="@ViewBag.ViewerLink"></iframe>
 
 
-     
+                <div class="col-lg-6" style="width:41%">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Details</strong>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Stain: He</th>
+                                        <th scope="col">Organ: Organ</th>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">Tissue: Tissue</th>
+                                        <th scope="col">Test: positive</th>
 
-    </div><!-- .row -->
-</div><!-- .animated -->
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">Comment</th>
+                                        <th scope="col">recomendations...</th>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">Sharpness Map</th>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">R: 1%</th>
+                                        <th scope="col">Y: 1%</th>
+                                        <th scope="col">G: 99%</th>
+
+                                    </tr>
+                                    
+
+                                </thead>
+                                <tbody>
+                                    
+                                </tbody>
+                            </table>
+                            <img style="width:200%; height:auto" src="~/TestImg/CMU-1.png" />
+                        </div>
+                        <button type="button" class="btn btn-danger">Pdf</button>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
 
