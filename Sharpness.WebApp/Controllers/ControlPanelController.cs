@@ -77,7 +77,7 @@ namespace Sharpness.WebApp.Controllers
             }
 
             //Today only Default-rules possible 
-            var reglament = manager.GetReglament(stain.Name,organ.Name,tissue.Name);
+            //var reglament = manager.GetReglament(stain.Name,organ.Name,tissue.Name);
            // var report = manager.GenerateSharpnessReport(stain.Name, organ.Name,tissue.Name); 
 
 

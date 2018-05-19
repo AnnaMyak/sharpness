@@ -12,8 +12,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharpness.Persistence", "Sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{EFF65CD1-2B09-4243-91CC-0BB990AE2958}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleSharpness", "FillData\ConsoleSharpness.csproj", "{5639AD32-1643-4CEC-B08A-B6394B6B0139}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,14 +47,6 @@ Global
 		{EFF65CD1-2B09-4243-91CC-0BB990AE2958}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EFF65CD1-2B09-4243-91CC-0BB990AE2958}.Release|x64.ActiveCfg = Release|x64
 		{EFF65CD1-2B09-4243-91CC-0BB990AE2958}.Release|x64.Build.0 = Release|x64
-		{5639AD32-1643-4CEC-B08A-B6394B6B0139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5639AD32-1643-4CEC-B08A-B6394B6B0139}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5639AD32-1643-4CEC-B08A-B6394B6B0139}.Debug|x64.ActiveCfg = Debug|x64
-		{5639AD32-1643-4CEC-B08A-B6394B6B0139}.Debug|x64.Build.0 = Debug|x64
-		{5639AD32-1643-4CEC-B08A-B6394B6B0139}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5639AD32-1643-4CEC-B08A-B6394B6B0139}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5639AD32-1643-4CEC-B08A-B6394B6B0139}.Release|x64.ActiveCfg = Release|x64
-		{5639AD32-1643-4CEC-B08A-B6394B6B0139}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
