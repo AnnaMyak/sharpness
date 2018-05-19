@@ -1,0 +1,58 @@
+﻿@model IdentitySample.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutRegister.cshtml";
+}
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo">
+                    <a href="index.html">
+                        <img class="align-content" src="images/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="login-form">
+                    <h4>Register a new account</h4>
+                    <form>
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+                        <div class="form-group">
+
+
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email", @type = "Email" })
+
+                        </div>
+
+                        <div class="form-group">
+
+
+                            @Html.TextBoxFor(m => m.Institution, new { @class = "form-control", @placeholder = "Institution", @type = "text" })
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password", @type = "password" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = " Confirm password", @type = "password" })
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" value="Register">Register</button>
+
+                        
+                        <div class="register-link m-t-15 text-center">
+                            <p>Already have account ? <a href="@Url.Action("Login","Account")"> Sign in</a></p>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

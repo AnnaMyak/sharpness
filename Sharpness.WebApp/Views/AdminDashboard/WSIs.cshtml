@@ -1,0 +1,54 @@
+﻿@model Sharpness.WebApp.Models.SharpnessViewModels
+
+@{
+    ViewBag.Title = "WSIs";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">All WSIs</strong>
+                </div>
+                <div class="card-body">
+                    <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Titel</th>
+                                <th>Description</th>
+                                <th>Path</th>
+                                <th>Report</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in @Model.WSIs)
+                            {
+
+                            <tr>
+
+                                
+                                <td>@item.UserId</td>
+                                <td>@item.Titel</td>
+                                <td>@item.Description</td>
+                                <td>@item.Path</td>
+                                <td>@item.Creation</td>
+                                <td><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-star"></i>&nbsp; Report</button></td>
+                                <td><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></td>
+
+                                
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div><!-- .animated -->
+

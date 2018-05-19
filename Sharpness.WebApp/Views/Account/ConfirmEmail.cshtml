@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Confirm Email";
+    Layout = "~/Views/Shared/_LayoutRegister.cshtml";
+}
+        
+
+
+
+
+<div class="sufee-login d-flex align-content-center flex-wrap">
+    <div class="container">
+        <div class="login-content">
+            
+            <div class="login-form">
+                <form>
+                    
+                    <h4>
+                        Thank you for confirming your email. Please click here to 
+                        <br/>
+                        <br />
+                        <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Login", "Account")'">Log in</button> 
+                    </h4> 
+                        
+        </form>
+            </div>
+        </div>
+    </div>
+</div>

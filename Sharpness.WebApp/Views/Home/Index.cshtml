@@ -1,0 +1,83 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Sharpness Quality Platform</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap core CSS     -->
+
+    <link href="~/start_assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/start_assets/css/paper-kit.css" rel="stylesheet" />
+
+    <!--     Fonts and icons     -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-md fixed-top navbar-transparent" color-on-scroll="500">
+        <div class="container">
+            <div class="navbar-translate">
+                <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar"></span>
+                    <span class="navbar-toggler-bar"></span>
+                    <span class="navbar-toggler-bar"></span>
+                </button>
+
+            </div>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a href="@Url.Action("Login","Account")" class="nav-link"> Log in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("Register","Account")"  class="nav-link"> Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <div class="page-header section-dark" style="background-image: url('../../start_assets/img/The-Orion-nebula.jpg')">
+            <div class="filter"></div>
+            <div class="content-center">
+                <div class="container">
+                    <div class="title-brand">
+                        <h1 class="presentation-title">Sharpness</h1>
+
+                    </div>
+                    <h2 class="presentation-subtitle text-center">Test the quality of WSI</h2>
+                </div>
+            </div>
+            <div class="moving-clouds" style="background-image: url('../../start_assets/img/clouds.png'); ">
+            </div>
+
+        </div>
+        <!-- Core JS Files -->
+        <script src="~/start_assets/js/jquery-3.2.1.js"></script>
+        <script src="~/start_assets/js/jquery-ui-1.12.1.custom.min.js"></script>
+        <script src="~/start_assets/js/popper.js"></script>
+        <script src="~/start_assets/js/bootstrap.min.js"></script>
+
+        <!-- Switches -->
+        <script src="~/start_assets/js/bootstrap-switch.min.js"></script>
+
+        <!--  Plugins for Slider -->
+        <script src="~/start_assets/js/nouislider.js"></script>
+        <!--  Plugins for DateTimePicker -->
+        <script src="~/start_assets/js/moment.min.js"></script>
+        <script src="~/start_assets/js/bootstrap-datetimepicker.min.js"></script>
+        <!--  Paper Kit Initialization and functons -->
+        <script src="~/start_assets/js/paper-kit.js"></script>
+
+
+</body>
+</html>

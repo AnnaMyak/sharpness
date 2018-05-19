@@ -1,0 +1,62 @@
+﻿@model Sharpness.WebApp.Models.SharpnessViewModels
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+@{
+    foreach (var item in Model.Reglaments)
+    {
+
+
+        <div class="col-md-4">
+            <aside class="profile-nav alt">
+                <section class="card">
+                    <div class="card-header user-header alt bg-dark">
+                        <div class="media">
+                            
+                            <div class="media-body">
+                                <h2 class="text-light display-6">@item.Titel</h2>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                        Edges: @item.Edges 
+                        </li>
+                        <li class="list-group-item">
+                           Sharpness value: @item.SharpnessThresholdValue
+                        </li>
+                        <li class="list-group-item">
+                           Tile Size: @item.TileSize
+                        </li>
+                        <li class="list-group-item">
+                           Scaling: @item.Scaling
+                        </li>
+                        <li class="list-group-item">
+                           Acceptance value: @item.AcceptanceValue %
+                        </li>
+                        <li class="list-group-item">
+                            @if (item.Status == true)
+                            {
+                                <label class="switch switch-text switch-primary switch-pill"><input type="checkbox" class="switch-input" checked="true"> <span data-on="On" data-off="Off" class="switch-label"></span> <span class="switch-handle"></span></label>
+
+                            }
+                            else
+                            {
+                                <label class="switch switch-text switch-primary switch-pill"><input type="checkbox" class="switch-input" checked="false"> <span data-on="On" data-off="Off" class="switch-label"></span> <span class="switch-handle"></span></label>
+
+                            }
+                            </li>
+
+                    </ul>
+                </section>
+            </aside>
+        </div>
+
+
+    }
+}
+

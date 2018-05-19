@@ -1,0 +1,55 @@
+﻿@model Sharpness.WebApp.Models.SharpnessViewModels
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">All Users</strong>
+                </div>
+                <div class="card-body">
+                    <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Instution</th>
+                                <th>Email confirmed</th>
+                                <th>Dashboard</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in @Model.Users)
+                            {
+
+                                <tr>
+
+
+                                    <td>@item.Email</td>
+                                    <td>@item.Institution</td>
+                                    <td>@item.EmailConfirmed</td>
+                                    
+                                    <td><button type="button" class="btn btn-primary btn-sm" onclick="location.href='@Url.Action("Index", "Dashboard")?id=@item.Id)'">
+                                        <i class="fa fa-dashboard">
+                                        </i>&nbsp;Dashboard</button></td>
+                                    
+                                    
+                                    <td><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></td>
+                                    
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div><!-- .animated -->
+
+

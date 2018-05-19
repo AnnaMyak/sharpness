@@ -1,0 +1,7 @@
+C:\Users\AnnaToshiba2\Desktop\last version\Sharpness.WebApp\UnitTestProject\bin\Debug\UnitTestProject.dll
+C:\Users\AnnaToshiba2\Desktop\last version\Sharpness.WebApp\UnitTestProject\bin\Debug\UnitTestProject.pdb
+C:\Users\AnnaToshiba2\Desktop\last version\Sharpness.WebApp\UnitTestProject\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\AnnaToshiba2\Desktop\last version\Sharpness.WebApp\UnitTestProject\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\AnnaToshiba2\Desktop\last version\Sharpness.WebApp\UnitTestProject\obj\Debug\UnitTestProject.csprojResolveAssemblyReference.cache
+C:\Users\AnnaToshiba2\Desktop\last version\Sharpness.WebApp\UnitTestProject\obj\Debug\UnitTestProject.dll
+C:\Users\AnnaToshiba2\Desktop\last version\Sharpness.WebApp\UnitTestProject\obj\Debug\UnitTestProject.pdb

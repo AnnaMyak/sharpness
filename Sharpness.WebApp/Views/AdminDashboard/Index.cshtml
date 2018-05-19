@@ -1,0 +1,266 @@
+﻿@model Sharpness.WebApp.Models.SharpnessViewModels
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Admin Dashboard</h4>
+            </div>
+            <div class="card-body">
+                <div class="default-tab">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="user-activity-tab" data-toggle="tab" href="#user-activity" role="tab" aria-controls="user-activity" aria-selected="true">User Activity</a>
+                            <a class="nav-item nav-link" id="control-statistics-tab" data-toggle="tab" href="#control-statistics" role="tab" aria-controls="control-statistics" aria-selected="false">Sharpness Control Statistics</a>
+                            <a class="nav-item nav-link" id="entity-management-tab" data-toggle="tab" href="#entity-management" role="tab" aria-controls="entity-management" aria-selected="false">Entity Management</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content pl-3 pt-2" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="user-activity" role="tabpanel" aria-labelledby="user-activity-tab">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong class="card-title mb-3">Users</strong>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mx-auto d-block">
+                                            <img class="rounded-circle mx-auto d-block" src="~/assets/img/user.png" alt="Card image cap">
+                                            <div class="location text-sm-center"><i class="fa fa-group"></i> Get more information</div>
+                                        </div>
+                                        <hr>
+                                        <div class="card-text text-sm-center">
+                                            <button type="button" class="btn btn-primary btn-sm" onclick="location.href='@Url.Action("Users", "AdminDashboard")'"><i class="fa fa-star"></i>&nbsp; More</button>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="tab-pane fade" id="control-statistics" role="tabpanel" aria-labelledby="control-statistics-tab">
+
+                            <div class="animated fadeIn">
+                                <div class="row">
+
+                                </div>
+                            </div>   
+                            <script src="~/assets/js/lib/chart-js/chartjs-init.js"></script>
+
+
+
+
+
+
+                        </div>
+
+
+                        <div class="tab-pane fade" id="entity-management" role="tabpanel" aria-labelledby="entity-management-tab">
+                            <div class="animated fadeIn">
+                                <div class="row">
+                                
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <img class="card-img-top" src="~/assets/img/default.jpg" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h4 class="card-title mb-3">Reglaments</h4>
+                                            </div>
+                                            <button type="button" class="btn btn-primary btn-sm"onclick="location.href='@Url.Action("Index", "Reglament")'" >More-></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <img class="card-img-top" src="~/assets/img/default2.jpg" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h4 class="card-title mb-3">Reports</h4>
+                                            </div>
+                                            <button type="button" class="btn btn-primary btn-sm">More-></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <img class="card-img-top" src="~/assets/img/default3.jpg" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h4 class="card-title mb-3">WSIs</h4>
+                                            </div>
+                                            <button type="button" class="btn btn-primary btn-sm">More-></button>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-lg-6">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <strong class="card-title">Stains</strong>
+                                            </div>
+                                            <div class="card-body">
+                                                <table class="table">
+                                                    <thead class="thead-dark">
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Stain</th>
+                                                            <th scope="col">Delete</th>
+                                                            
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @{ 
+                                                            int i = 1;
+                                                            foreach (var item in Model.Stains)
+                                                            {
+                                                        <tr>
+                                                            <th scope="row">@i</th>
+                                                            <td>@item.Name</td>
+                                                            <td><button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
+                                                            </td>
+                                                        </tr>
+                                                                i++;
+                                                            }
+
+                                                            }
+                                                    </tbody>
+                                                </table>
+                                                <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="...add a new stain" class="form-control">
+                                                    <button type="button" class="btn btn-success btn-sm">Add</button>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-6">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <strong class="card-title">Organs</strong>
+                                            </div>
+                                            <div class="card-body">
+                                                <table class="table">
+                                                    <thead class="thead-dark">
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Organ</th>
+                                                            <th scope="col">Delete</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @{
+                                                            int j = 1;
+                                                            foreach (var item in Model.Organs)
+                                                            {
+                                                                <tr>
+                                                                    <th scope="row">@j</th>
+                                                                    <td>@item.Name</td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
+                                                                    </td>
+                                                                </tr>
+                                                                j++;
+                                                            }
+
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="text-input" name="text-input" placeholder="...add a new organ" class="form-control">
+                                                    <button type="button" class="btn btn-success btn-sm">Add</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                    
+                                    
+
+                                    
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="modal fade" id="addModal"  role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Add</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Add an instance....
+                    </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editModal" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Edit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Edit...
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Delete...
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
