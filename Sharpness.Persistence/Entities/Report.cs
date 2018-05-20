@@ -31,7 +31,6 @@ namespace Sharpness.Persistence.Entities
 
 
 
-        public string ReglamentTitel { get; set; }
         
        
                 
@@ -41,10 +40,12 @@ namespace Sharpness.Persistence.Entities
         public int Semaphore_Yellow { get; set; }
         public int Semaphore_Red { get; set; }
 
-        //Second Sharpness Map 
-        // in %
-        public int Red_Channel { get; set; }
-        public int Blue_Channel { get; set; }
+
+
+        public string SharpnessMap { get; set; }
+        
+
+
         public bool Evaluation { get; set; }
         public string Comment { get; set; }
         public DateTime Creation { get; set; }

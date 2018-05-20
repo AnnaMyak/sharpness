@@ -55,3 +55,32 @@ C:\Users\AnnaToshiba2\Desktop\last version\Sharpness.WebApp\Sharpness.Persistenc
 C:\Users\AnnaToshiba2\Desktop\last version\Sharpness.WebApp\Sharpness.Persistence\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\AnnaToshiba2\Desktop\last version\Sharpness.WebApp\Sharpness.Persistence\obj\Debug\Sharpness.Persistence.dll
 C:\Users\AnnaToshiba2\Desktop\last version\Sharpness.WebApp\Sharpness.Persistence\obj\Debug\Sharpness.Persistence.pdb
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\Sharpness.Persistence.dll.config
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\Sharpness.Persistence.dll
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\Sharpness.Persistence.pdb
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\EntityFramework.dll
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\FluentValidation.dll
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\FluentValidation.Mvc.dll
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\System.ComponentModel.Primitives.dll
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\System.Web.Helpers.dll
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\System.Web.Mvc.dll
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\System.Web.Razor.dll
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\System.Web.WebPages.dll
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\EntityFramework.xml
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\FluentValidation.xml
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\FluentValidation.Mvc.xml
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\System.Web.Helpers.xml
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\System.Web.Mvc.xml
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\System.Web.Razor.xml
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\System.Web.WebPages.xml
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\obj\Debug\Sharpness.Persistence.csprojResolveAssemblyReference.cache
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\obj\Debug\Sharpness.Persistence.dll
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.Persistence\obj\Debug\Sharpness.Persistence.pdb

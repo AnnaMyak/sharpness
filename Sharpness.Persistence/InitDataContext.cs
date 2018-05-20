@@ -13,7 +13,7 @@ namespace Sharpness.Persistence
     {
         public InitDataContext()
         {
-            /* var _context = new DataContext();
+             var _context = new DataContext();
 
              var stains = new List<Stain>
              {
@@ -88,28 +88,15 @@ namespace Sharpness.Persistence
              _context.Reglaments.Add(reglament);
              _context.SaveChanges();
 
-     */
 
-            var _context = new DataContext();
-            var wsis = _context.WSIs.ToList();
-            var repots = new ArrayList();
-            var tissue = _context.Tissues.Where(t => t.Name == "Tissue").FirstOrDefault();
-            var organ = _context.Organs.Where(t => t.Name == "Organ").FirstOrDefault();
-            var stain = _context.Stains.Where(t => t.Name == "HE").FirstOrDefault();
-            foreach (var item in wsis)
-            {
-                _context.Reports.Add(
-                    new Report{
-                        UserId=item.UserId,
-                        WSIId=item.WSIId,
-                        OrganId=organ.OrganId,
-                        TissueId=tissue.TissueId,
-                        StainId=stain.StainId,
+            var tissue = new Tissue { Name = "Tissue" };
+            _context.Tissues.Add(tissue);
+            _context.SaveChanges();
 
 
 
-                    });
-            } 
+
+
 
         }
 

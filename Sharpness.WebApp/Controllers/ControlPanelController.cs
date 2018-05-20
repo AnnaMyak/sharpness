@@ -34,26 +34,30 @@ namespace Sharpness.WebApp.Controllers
             SharpnessViewModels model = new SharpnessViewModels();
             model.Organs = _repoOrgans.GetOrgans();
             model.Stains = _repoStains.GetStains();
+            model.Tissues = _repoTissues.GetTissues();
             ViewBag.Stains = new SelectList(model.Stains, "Name", "Name");
             ViewBag.Organs = new SelectList(model.Organs, "Name", "Name");
+            ViewBag.Tissues = new SelectList(model.Tissues,"Name","Name");
             return View(model);
         }
 
         [Authorize]
         public ActionResult Report(string Link)
         {
+
             ViewBag.ViewerLink = "http://localhost:5000/Sharpness_WebApp_Uploads/"+Link;
+
             return View();
         }
 
         [Authorize]
         [HttpPost]
-        public ActionResult Index(HttpPostedFileBase file, WSI wsi, Stain stain, Organ organ)
+        public ActionResult Index(HttpPostedFileBase file, WSI wsi, Stain stain, Organ organ, Tissue tissue)
         {
 
             //TODO
             //Today only one value possible
-            var tissue = _repoTissues.GetTissueByName("Tissue");
+            //var tissue = _repoTissues.GetTissueByName("Tissue");
 
             //
             var root = @"C:\Users\AnnaToshiba2\Desktop\WSI\Sharpness_WebApp_Uploads\";
@@ -76,7 +80,7 @@ namespace Sharpness.WebApp.Controllers
                 
             }
 
-            //Today only Default-rules possible 
+            //only Default-rules possible 
             //var reglament = manager.GetReglament(stain.Name,organ.Name,tissue.Name);
            // var report = manager.GenerateSharpnessReport(stain.Name, organ.Name,tissue.Name); 
 
@@ -89,10 +93,6 @@ namespace Sharpness.WebApp.Controllers
         }
 
 
-        public ActionResult Report2(string Link)
-        {
-            ViewBag.ViewerLink = "http://localhost:5000/Sharpness_WebApp_Uploads/" + Link;
-            return View();
-        }
+        
     }
 }

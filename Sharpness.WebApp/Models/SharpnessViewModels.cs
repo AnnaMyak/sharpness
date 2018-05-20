@@ -17,9 +17,11 @@ namespace Sharpness.WebApp.Models
         public IEnumerable<WSI> WSIs { get; set; }
         public IEnumerable<Report> Reports { get; set; }
         public IEnumerable<ApplicationUser> Users { get; set; }
+
         public WSI WSI { get; set; }
         public Stain Stain { get; set; }
         public Organ Organ { get; set; }
+        public Tissue Tissue { get; set; }
     }
 
     

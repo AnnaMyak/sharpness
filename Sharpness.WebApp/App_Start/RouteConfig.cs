@@ -14,6 +14,12 @@ namespace IdentitySample
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name:"CotrolPanel",
+                url: "{controller}/{action}/{Link}/{Stain}/{Organ}/{Tissue}/{SharpnessMapPath}",
+                defaults: new { controller = "ControlPanel", action = "Report", Link = UrlParameter.Optional, Stain = UrlParameter.Optional, Organ = UrlParameter.Optional, Tissue= UrlParameter.Optional, SharpnessMapPath = UrlParameter.Optional }
+
+                );
         }
     }
 }
