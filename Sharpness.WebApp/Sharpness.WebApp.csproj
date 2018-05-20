@@ -257,7 +257,6 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrganController.cs" />
     <Compile Include="Controllers\ReglamentController.cs" />
-    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\StainController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
@@ -604,11 +603,12 @@
     <Content Include="Views\AdminDashboard\Users.cshtml" />
     <Content Include="Views\Def\Sample2.cshtml" />
     <Content Include="Views\ControlPanel\Report.cshtml" />
+    <Content Include="Views\Dashboard\AllMyTests.cshtml" />
+    <Content Include="Views\AdminDashboard\Reglaments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Organ\" />
-    <Folder Include="Views\Report\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

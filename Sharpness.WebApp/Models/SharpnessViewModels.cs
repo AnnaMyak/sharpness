@@ -1,6 +1,7 @@
 ﻿using IdentitySample.Models;
 using Sharpness.Persistence.Entities;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -22,7 +23,12 @@ namespace Sharpness.WebApp.Models
         public Stain Stain { get; set; }
         public Organ Organ { get; set; }
         public Tissue Tissue { get; set; }
+        public Report Report { get; set; }
+        
+        
     }
+
+   
 
     
     

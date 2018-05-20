@@ -118,7 +118,7 @@ namespace Sharpness.Persistence.Repositories
         public IEnumerable<Report> GetAllReports()
         {
             var _context = new DataContext();
-            return _context.Reports.ToList();
+            return _context.Reports.ToList().OrderByDescending(r => r.Creation);
         }
         
 
@@ -173,7 +173,8 @@ namespace Sharpness.Persistence.Repositories
 
         public Report GetReportByWSI(Guid WSIId)
         {
-            throw new NotImplementedException();
+            var _context = new DataContext();
+            return _context.Reports.Where(r=> r.WSIId==WSIId).FirstOrDefault();
         }
 
         public int GetTotalNumberOfNegativeTests()

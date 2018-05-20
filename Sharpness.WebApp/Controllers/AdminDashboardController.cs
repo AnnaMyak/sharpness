@@ -11,14 +11,16 @@ namespace Sharpness.WebApp.Controllers
 {
     public class AdminDashboardController : Controller
     {
-        public IStainRepository _repoStains = new StainRepository();
-        public IOrganRepository _repoOrgans = new OrganRepository();
-        public ITissueRepository _repoTissues = new TissueRepository();
-        public IWSIRepository _repoWSI = new WSIRepository();
-        public IUserRepository _repoUsers = new UserRepository();
+        private IStainRepository _repoStains = new StainRepository();
+        private IOrganRepository _repoOrgans = new OrganRepository();
+        private ITissueRepository _repoTissues = new TissueRepository();
+        private IWSIRepository _repoWSI = new WSIRepository();
+        private IUserRepository _repoUsers = new UserRepository();
+        private IReportRepository _repoReports = new ReportRepository();
+        private IReglamentRepository _repoReglaments = new ReglamentRepository();
 
         //public IReglamentRepository _repoReglaments = new ReglamentRepository();
-        #region ActionControllers  
+         
         // GET: Admin
         [Authorize(Roles = "Admin")]
         public ActionResult Index()
@@ -27,7 +29,8 @@ namespace Sharpness.WebApp.Controllers
             model.Stains = _repoStains.GetStains();
             model.Organs = _repoOrgans.GetOrgans();
             model.Tissues = _repoTissues.GetTissues();
-            //model.Users = _repoUsers.GetAllUsers();
+            model.Reports = _repoReports.GetAllReports();
+            model.Users = _repoUsers.GetAllUsers();
            
 
             //model.WSIs = _repoWSI.GetWSIs();
@@ -39,7 +42,10 @@ namespace Sharpness.WebApp.Controllers
         {
             SharpnessViewModels model = new SharpnessViewModels();
             model.WSIs = _repoWSI.GetWSIs();
-            
+            model.Users = _repoUsers.GetAllUsers();
+            model.Reports = _repoReports.GetAllReports();
+           
+
             return View(model);
         }
 
@@ -52,6 +58,24 @@ namespace Sharpness.WebApp.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
+        public ActionResult WSIToReport(Guid WSIId)
+        {
+            var report = _repoReports.GetReportByWSI(WSIId);
+            return RedirectToAction("Report", "ControlPanel", new { ReportId = report.ReportId });
+        }
+
+
+        public ActionResult Reglaments()
+        {
+            SharpnessViewModels model = new SharpnessViewModels();
+            model.Reglaments = _repoReglaments.GetAllReglaments();
+
+            return View(model);
+        }
+
+
+
         public JsonResult WelcomeNote()
         {
             bool isAdmin = false;
@@ -61,6 +85,6 @@ namespace Sharpness.WebApp.Controllers
             return Json(output, JsonRequestBehavior.AllowGet);
         }
 
-        #endregion
+       
     }
 }

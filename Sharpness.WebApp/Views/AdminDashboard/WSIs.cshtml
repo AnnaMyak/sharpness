@@ -21,6 +21,7 @@
                                 <th>Titel</th>
                                 <th>Description</th>
                                 <th>Path</th>
+                                <th>Creation</th>
                                 <th>Report</th>
                                 <th>Delete</th>
                             </tr>
@@ -37,7 +38,8 @@
                                 <td>@item.Description</td>
                                 <td>@item.Path</td>
                                 <td>@item.Creation</td>
-                                <td><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-star"></i>&nbsp; Report</button></td>
+                                <td><i class="fa fa-star"></i>  @Html.ActionLink("To Report", "WSIToReport", "Dashboard", new { WSIId = item.WSIId }, null)
+                                </td>
                                 <td><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></td>
 
                                 
