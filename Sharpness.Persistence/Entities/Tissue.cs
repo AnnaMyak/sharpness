@@ -10,14 +10,13 @@ namespace Sharpness.Persistence.Entities
     public class Tissue
     {
         public Tissue() {
-            TissueId = System.Guid.NewGuid();
             Creation = DateTime.Now;
         }
-        [Key]
-        public Guid TissueId { get; set; }
-
+        
+        
         [StringLength(100, MinimumLength = 3)]
         [Required]
+        [Key]
         public string Name { get; set; }
         public DateTime Creation { get; set; }
         public ICollection<Report> Reports { get; set; }

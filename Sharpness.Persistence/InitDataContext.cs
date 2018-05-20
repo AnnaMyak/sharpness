@@ -15,7 +15,8 @@ namespace Sharpness.Persistence
         {
              var _context = new DataContext();
 
-             var stains = new List<Stain>
+            if (_context.Stains.Count()==0) {
+                var stains = new List<Stain>
              {
                  new Stain {Name="HE"},
                  new Stain {Name="Periodic Acid Schiff (PAS)"},
@@ -46,9 +47,9 @@ namespace Sharpness.Persistence
 
              };
 
-             stains.ForEach(s => _context.Stains.Add(s));
-             _context.SaveChanges();
-             var organs = new List<Organ> {
+                stains.ForEach(s => _context.Stains.Add(s));
+                _context.SaveChanges();
+                var organs = new List<Organ> {
                  new Organ {Name="Organ" },
                  new Organ {Name="Liver" },
                  new Organ {Name="Kidney" },
@@ -72,30 +73,30 @@ namespace Sharpness.Persistence
                  new Organ {Name="Cervix" },
                  new Organ {Name="Prostate" }
              };
-             organs.ForEach(o => _context.Organs.Add(o));
+                organs.ForEach(o => _context.Organs.Add(o));
 
-             _context.SaveChanges();
+                _context.SaveChanges();
 
-             var reglament = new Reglament
-             { Titel = "Default ",
-               AcceptanceValue = 70,
-               Edges = 200,
-               Scaling = 1.0,
-               SharpnessThresholdValue = 0.3,
-               TileSize = 512,
-               Status=true,
-             };
-             _context.Reglaments.Add(reglament);
-             _context.SaveChanges();
-
-
-            var tissue = new Tissue { Name = "Tissue" };
-            _context.Tissues.Add(tissue);
-            _context.SaveChanges();
+                var reglament = new Reglament
+                { Titel = "Default ",
+                    AcceptanceValue = 70,
+                    Edges = 200,
+                    Scaling = 1.0,
+                    SharpnessThresholdValue = 0.3,
+                    TileSize = 512,
+                    Status = true,
+                };
+                _context.Reglaments.Add(reglament);
+                _context.SaveChanges();
 
 
+                var tissue = new Tissue { Name = "Tissue" };
+                _context.Tissues.Add(tissue);
+                _context.SaveChanges();
 
 
+
+            }
 
 
         }

@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Report2";
+    ViewBag.Title = "Report";
     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
 }
 
@@ -12,8 +12,7 @@
             </div>
             <div class="card-body">
                 
-                <iframe style="width:59%; height:550px" src="@ViewBag.ViewerLink"></iframe>
-
+                
 
                 <div class="col-lg-6" style="width:41%">
                     <div class="card">
@@ -39,16 +38,20 @@
 
                                     </tr>
                                     <tr>
-                                        <th scope="col">Sharpness Map</th>
+                                        <th scope="col">Sharpness Map Legend</th>
                                         
                                     </tr>
                                     <tr>
-                                        <th scope="col"><span class="badge badge-danger">R: 1%</span></th>
-                                        <th scope="col"><span class="badge badge-warning">Y: 1%</span></th>
-                                        <th scope="col"><span class="badge badge-success">G: 99%</span></th>
-
+                                        <th scope="col"><span class="badge badge-danger">R: @ViewBag.R%</span></th>
+                                        
                                     </tr>
-                                    
+                                    <tr>
+                                        <th scope="col"><span class="badge badge-warning">Y: @ViewBag.Y%</span></th>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th scope="col"><span class="badge badge-success">G: @ViewBag.G%</span></th>
+                                    </tr>
 
                                 </thead>
                                 <tbody>
@@ -61,6 +64,7 @@
                     </div>
                 </div>
 
+                <iframe style="width:59%; height:760px" src="@ViewBag.ViewerLink"></iframe>
 
 
             </div>

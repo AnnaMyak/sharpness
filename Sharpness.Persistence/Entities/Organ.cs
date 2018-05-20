@@ -11,14 +11,14 @@ namespace Sharpness.Persistence.Entities
     {
         public Organ()
         {
-            OrganId = System.Guid.NewGuid();
+            
             Creation = DateTime.Now;
         }
-        [Key]
-        public Guid OrganId { get; set; }
-
+        
+        
         [StringLength(100, MinimumLength = 3)]
         [Required]
+        [Key]
         public string Name { get; set; }
         public DateTime Creation { get; set; }
 

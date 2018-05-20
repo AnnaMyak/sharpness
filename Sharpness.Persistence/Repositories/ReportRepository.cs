@@ -25,15 +25,13 @@ namespace Sharpness.Persistence.Repositories
         public IEnumerable<Report> GetAllNegativeReportsByOrgan(string Organ)
         {
             var _context = new DataContext();
-            var organ = _context.Organs.Where(o => o.Name == Organ).FirstOrDefault();
-            return _context.Reports.Where(r => r.Evaluation == false && r.OrganId == organ.OrganId).ToList();
+            return _context.Reports.Where(r => r.Evaluation == false && r.OrganName == Organ).ToList();
         }
 
         public IEnumerable<Report> GetAllNegativeReportsByOrganAndUserId(string Organ, string UserId)
         {
             var _context = new DataContext();
-            var organ = _context.Organs.Where(o => o.Name == Organ).FirstOrDefault();
-            return _context.Reports.Where(r => r.Evaluation == false && r.OrganId == organ.OrganId && r.UserId==UserId).ToList();
+            return _context.Reports.Where(r => r.Evaluation == false && r.OrganName == Organ && r.UserId==UserId).ToList();
 
         }
 
@@ -72,16 +70,14 @@ namespace Sharpness.Persistence.Repositories
         public IEnumerable<Report> GetAllPositiveReportsByOrgan(string Organ)
         {
             var _context = new DataContext();
-            var organ = _context.Organs.Where(o => o.Name == Organ).FirstOrDefault();
-            return _context.Reports.Where(r => r.Evaluation == true && r.OrganId == organ.OrganId).ToList();
+            return _context.Reports.Where(r => r.Evaluation == true && r.OrganName == Organ).ToList();
 
         }
 
         public IEnumerable<Report> GetAllPositiveReportsByOrganAndUserId(string Organ, string UserId)
         {
             var _context = new DataContext();
-            var organ = _context.Organs.Where(o => o.Name == Organ).FirstOrDefault();
-            return _context.Reports.Where(r => r.Evaluation == true && r.OrganId == organ.OrganId && r.UserId==UserId).ToList();
+            return _context.Reports.Where(r => r.Evaluation == true && r.OrganName == Organ && r.UserId==UserId).ToList();
 
         }
 
@@ -115,7 +111,8 @@ namespace Sharpness.Persistence.Repositories
 
         public IEnumerable<Report> GetAllReportByOrganAndUserId(string Organ, string UserId)
         {
-            throw new NotImplementedException();
+            var _context = new DataContext();
+            return _context.Reports.Where(r => r.OrganName == Organ && r.UserId == UserId).ToList();
         }
 
         public IEnumerable<Report> GetAllReports()
@@ -332,7 +329,9 @@ namespace Sharpness.Persistence.Repositories
 
         public void Insert(Report Report)
         {
-            throw new NotImplementedException();
+            var _context = new DataContext();
+            _context.Reports.Add(Report);
+            _context.SaveChanges();
         }
     }
 }

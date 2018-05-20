@@ -17,11 +17,7 @@ namespace Sharpness.Persistence.Repositories
             _context.SaveChanges();
         }
 
-        public Tissue GetTissueById(Guid TissueId)
-        {
-            var _context = new DataContext();
-            return _context.Tissues.Find(TissueId);
-        }
+        
 
         public Tissue GetTissueByName(string Name)
         {

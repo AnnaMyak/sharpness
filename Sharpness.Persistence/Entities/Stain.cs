@@ -11,14 +11,13 @@ namespace Sharpness.Persistence.Entities
     {
 
         public Stain() {
-            StainId = System.Guid.NewGuid();
             Creation = DateTime.Now;
         }
-        [Key]
-        public Guid StainId { get; set; }
-
+        
+        
         [StringLength(100, MinimumLength = 2)]
         [Required]
+        [Key]
         public string Name { get; set; }
         public DateTime Creation { get; set; }
         public ICollection <Report> Reports { get; set; }

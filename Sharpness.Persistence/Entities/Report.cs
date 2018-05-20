@@ -24,9 +24,10 @@ namespace Sharpness.Persistence.Entities
 
         public Guid WSIId { get; set; }
         public Guid ReglamentId { get; set; }
-        public Guid StainId { get; set; }
-        public Guid OrganId { get; set; }
-        public Guid TissueId { get; set; }
+
+        public string StainName { get; set; }
+        public string OrganName { get; set; }
+        public string TissueName { get; set; }
 
 
 
@@ -42,7 +43,8 @@ namespace Sharpness.Persistence.Entities
 
 
 
-        public string SharpnessMap { get; set; }
+        public string ReportLink { get; set; }
+        public string SharpnessMapPath { get; set; }
         
 
 
@@ -56,11 +58,11 @@ namespace Sharpness.Persistence.Entities
         
         [ForeignKey("ReglamentId")]
         public Reglament Reglament {get; set;}
-        [ForeignKey("StainId")]
+        [ForeignKey("StainName")]
         public Stain Stain { get; set; }
-        [ForeignKey("OrganId")]
+        [ForeignKey("OrganName")]
         public Organ Organ { get; set; }
-        [ForeignKey("TissueId")]
+        [ForeignKey("TissueName")]
         public Tissue Tissue { get; set; }
 
 

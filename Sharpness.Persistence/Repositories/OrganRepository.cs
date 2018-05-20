@@ -17,11 +17,7 @@ namespace Sharpness.Persistence.Repositories
             _context.SaveChanges();
         }
 
-        public Organ GetOrganById(Guid OrganId)
-        {
-            var _context = new DataContext();
-            return _context.Organs.Find(OrganId);
-        }
+        
 
         public Organ GetOrganByName(string Name)
         {

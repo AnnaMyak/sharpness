@@ -25,6 +25,7 @@ namespace Sharpness.WebApp.Controllers
         private IReglamentRepository _repoReglaments = new ReglamentRepository();
         private ISharpnessManager manager = new SharpnessManager();
         private ITissueRepository _repoTissues = new TissueRepository();
+        private IReportRepository _repoReports = new ReportRepository();
         
         
         // GET: ControlPanel
@@ -42,10 +43,16 @@ namespace Sharpness.WebApp.Controllers
         }
 
         [Authorize]
-        public ActionResult Report(string Link)
+        public ActionResult Report(Guid ReportId)
         {
-
-            ViewBag.ViewerLink = "http://localhost:5000/Sharpness_WebApp_Uploads/"+Link;
+            var report = _repoReports.GetReportById(ReportId);
+            ViewBag.ViewerLink = "http://localhost:5000/Sharpness_WebApp_Uploads/"+report.ReportLink;
+            ViewBag.Stain = _repoStains.GetStainByName(report.StainName).Name;
+            ViewBag.Tissue = _repoTissues.GetTissueByName(report.TissueName).Name;
+            ViewBag.Organ = _repoOrgans.GetOrganByName(report.OrganName).Name;
+            ViewBag.G = report.Semaphore_Green;
+            ViewBag.Y = report.Semaphore_Yellow;
+            ViewBag.R = report.Semaphore_Red;
 
             return View();
         }
@@ -82,14 +89,28 @@ namespace Sharpness.WebApp.Controllers
 
             //only Default-rules possible 
             //var reglament = manager.GetReglament(stain.Name,organ.Name,tissue.Name);
-           // var report = manager.GenerateSharpnessReport(stain.Name, organ.Name,tissue.Name); 
-
-
-
-
+            // var report = manager.GenerateSharpnessReport(stain.Name, organ.Name,tissue.Name); 
             var reportLink = User.Identity.GetUserName() + "/" + "WSI " + wsi.Titel + "/" + fileName;
+            var report = new Report();
+            report.ReglamentId = _repoReglaments.GetReglamentByTitel("Default").ReglamentId;
+            report.Comment = "some words";
+            report.Evaluation = true;
+            report.OrganName = organ.Name;
+            report.TissueName = tissue.Name;
+            report.WSIId = wsi.WSIId;
+            report.StainName = stain.Name;
+            report.Semaphore_Green = 90;
+            report.Semaphore_Red = 1;
+            report.Semaphore_Yellow = 9;
+            report.SharpnessMapPath = @"C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.WebApp\TestImg\CMU-1.png";
+            report.ReportLink = reportLink;
+            report.UserId = User.Identity.GetUserId();
+            _repoReports.Insert(report);
 
-            return RedirectToAction("Report", new {Link=reportLink});
+
+
+            
+            return RedirectToAction("Report", new {ReportId=report.ReportId});
         }
 
 

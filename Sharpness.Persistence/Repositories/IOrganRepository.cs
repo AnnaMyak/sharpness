@@ -10,7 +10,7 @@ namespace Sharpness.Persistence.Repositories
     public interface IOrganRepository
     {
         IEnumerable<Organ> GetOrgans();
-        Organ GetOrganById(Guid OrganId);
+        
         Organ GetOrganByName(string Name);
         void Insert(Organ o);
         void Delete(Organ o);

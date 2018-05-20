@@ -18,11 +18,7 @@ namespace Sharpness.Persistence.Repositories
             _context.SaveChanges();
         }
 
-        public Stain GetStainById(Guid StainId)
-        {
-            var _context = new DataContext();
-            return _context.Stains.Find(StainId);
-        }
+
 
         public Stain GetStainByName(string Name)
         {

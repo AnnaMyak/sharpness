@@ -10,7 +10,6 @@ namespace Sharpness.Persistence.Repositories
     public interface IStainRepository
     {
         IEnumerable<Stain> GetStains();
-        Stain GetStainById(Guid StainId);
         Stain GetStainByName (string Name);
         void Insert(string name);
         void Delete(Stain s);
