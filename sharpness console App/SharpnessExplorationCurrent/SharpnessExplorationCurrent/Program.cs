@@ -14,7 +14,7 @@ namespace SharpnessExplorationCurrent
             //inputs
             string slidePath = GetParam(args);//@"C:\Users\AnnaToshiba2\Desktop\WSI\CMU-1.ndpi"; //GetParam(args);// @"C:\Users\AnnaToshiba2\Desktop\WSI\CMU-1.ndpi"; // @"C:\Wsi\tmp232\BIH-249_IIa_FC19560800.ndpi";
 
-            string outputDir = Path.GetDirectoryName(slidePath);
+            string outputDir = Path.Combine(Path.GetDirectoryName(slidePath));
             string outpathPrefix = outputDir + "\\" + Path.GetFileNameWithoutExtension(slidePath);
 
             // parameter
@@ -27,7 +27,7 @@ namespace SharpnessExplorationCurrent
             System.Drawing.Imaging.ImageFormat sharpnessformat = System.Drawing.Imaging.ImageFormat.Png;
             string debug_outpath = outpathPrefix + ".png";
             string result_outpath = outpathPrefix + ".png";
-            string param_outpath = outpathPrefix + ".csv";
+            string param_outpath = outpathPrefix + ".parameters.csv";
 
             if (!Directory.Exists(outputDir))
                 Directory.CreateDirectory(outputDir);

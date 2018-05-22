@@ -159,6 +159,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
@@ -540,6 +541,7 @@
     <Content Include="start_assets\js\paper-kit.js" />
     <Content Include="start_assets\js\popper.js" />
     <Content Include="TestImg\channels.png" />
+    <Content Include="TestImg\CMU-1.jpeg" />
     <Content Include="TestImg\CMU-1.png" />
     <Content Include="TestImg\CMU-2.png" />
     <Content Include="TestImg\data1.png" />
@@ -613,6 +615,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="TestFolder\" />
     <Folder Include="Views\Organ\" />
   </ItemGroup>
   <ItemGroup>

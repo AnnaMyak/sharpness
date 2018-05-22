@@ -8,6 +8,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -54,6 +55,20 @@ namespace Sharpness.WebApp.Controllers
             ViewBag.G = report.Semaphore_Green;
             ViewBag.Y = report.Semaphore_Yellow;
             ViewBag.R = report.Semaphore_Red;
+            //ViewBag.Map = report.SharpnessMapPath;
+            // Load Sharpness Map
+            //var ImgPath= String.Format(@"""{0}""", report.SharpnessMapPath);
+            var ImgPath =report.SharpnessMapPath;
+            Image img = Image.FromFile(ImgPath);
+            byte[] arr;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                arr = ms.ToArray();
+            }
+            var base64 = Convert.ToBase64String(arr);
+            ViewBag.Img = String.Format("data:image/png;base64,{0}", base64);
+
 
             return View();
         }
@@ -72,7 +87,7 @@ namespace Sharpness.WebApp.Controllers
             var fileName = "";
             
             
-            string outputDir = Path.Combine(Path.GetDirectoryName(root), User.Identity.GetUserName(),"WSI "+wsi.Titel);
+            string outputDir = Path.Combine(Path.GetDirectoryName(root), User.Identity.GetUserName(),"WSI "+wsi.Titel+@"\");
             if (!Directory.Exists(outputDir))
                 Directory.CreateDirectory(outputDir);
             if (file.ContentLength > 0)
@@ -111,7 +126,7 @@ namespace Sharpness.WebApp.Controllers
             report.Semaphore_Green = 90;
             report.Semaphore_Red = 1;
             report.Semaphore_Yellow = 9;
-            report.SharpnessMapPath = @"C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\Sharpness.WebApp\TestImg\CMU-1.png";
+            report.SharpnessMapPath = outputDir+ Path.GetFileNameWithoutExtension(fileName)+".jpeg";
             report.ReportLink = reportLink;
             report.UserId = User.Identity.GetUserId();
             _repoReports.Insert(report);

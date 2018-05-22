@@ -10,6 +10,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 
 namespace Sharpness.WebApp.Controllers
 {
@@ -19,20 +21,17 @@ namespace Sharpness.WebApp.Controllers
 
         public ActionResult Index()
         {
-            Process first = new Process();
-            try
+            
+            Image img = Image.FromFile(@"C:\Users\AnnaToshiba2\Desktop\WSI\Sharpness_WebApp_Uploads\myakinen@gmail.com\WSI AAA\CMU-1.png");
+            byte[] arr;
+            using (MemoryStream ms = new MemoryStream())
             {
-                first.StartInfo.FileName = @"C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Release\SharpnessExplorationCurrent.exe";
-                first.StartInfo.Arguments = @"C:\Users\AnnaToshiba2\Desktop\WSI\CMU-1.ndpi";
-                first.Start();
-                
-                first.WaitForExit();
-
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                arr = ms.ToArray();
             }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error "+ex.Message);
-            }
+            var base64 = Convert.ToBase64String(arr);
+            ViewBag.Img= String.Format("data:image/png;base64,{0}", base64);
+        
 
             return View();
         }
