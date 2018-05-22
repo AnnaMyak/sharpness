@@ -9,6 +9,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using System.Diagnostics;
 
 namespace Sharpness.WebApp.Controllers
 {
@@ -18,6 +19,21 @@ namespace Sharpness.WebApp.Controllers
 
         public ActionResult Index()
         {
+            Process first = new Process();
+            try
+            {
+                first.StartInfo.FileName = @"C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Release\SharpnessExplorationCurrent.exe";
+                first.StartInfo.Arguments = @"C:\Users\AnnaToshiba2\Desktop\WSI\CMU-1.ndpi";
+                first.Start();
+                
+                first.WaitForExit();
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error "+ex.Message);
+            }
+
             return View();
         }
 

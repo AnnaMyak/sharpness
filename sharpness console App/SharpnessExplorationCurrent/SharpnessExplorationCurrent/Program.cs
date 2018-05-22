@@ -12,9 +12,9 @@ namespace SharpnessExplorationCurrent
         static void Main(string[] args)
         {
             //inputs
-            string slidePath = @"C:\Users\AnnaToshiba2\Desktop\WSI\CMU-1.ndpi"; // @"C:\Wsi\tmp232\BIH-249_IIa_FC19560800.ndpi";
+            string slidePath = args[0];//GetParam(args); //@"C:\Users\AnnaToshiba2\Desktop\WSI\CMU-1.ndpi"; // @"C:\Wsi\tmp232\BIH-249_IIa_FC19560800.ndpi";
 
-            string outputDir = Path.Combine(Path.GetDirectoryName(slidePath), "meta", "sharpness");
+            string outputDir = args[1];//Path.Combine(Path.GetDirectoryName(slidePath), "meta", "sharpness");
             string outpathPrefix = outputDir + "\\" + Path.GetFileNameWithoutExtension(slidePath);
 
             // parameter

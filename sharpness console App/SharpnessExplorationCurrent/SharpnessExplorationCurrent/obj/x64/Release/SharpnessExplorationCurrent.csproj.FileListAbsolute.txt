@@ -50,3 +50,8 @@ C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\
 C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Release\SharpnessExplorationCurrent.csproj.CoreCompileInputs.cache
 C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Release\SharpnessExplorationCurrent.exe
 C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Release\SharpnessExplorationCurrent.pdb
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Release\SharpnessExplorationCurrent.csprojResolveAssemblyReference.cache
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Release\SharpnessExplorationCurrent.exe.config
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Release\SharpnessExplorationCurrent.csproj.CoreCompileInputs.cache
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Release\SharpnessExplorationCurrent.exe
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Release\SharpnessExplorationCurrent.pdb

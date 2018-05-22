@@ -7,6 +7,7 @@ using Sharpness.WebApp.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -90,7 +91,15 @@ namespace Sharpness.WebApp.Controllers
             //only Default-rules possible 
             //var reglament = manager.GetReglament(stain.Name,organ.Name,tissue.Name);
             // var report = manager.GenerateSharpnessReport(stain.Name, organ.Name,tissue.Name); 
-            var reportLink = User.Identity.GetUserName() + "/" + "WSI " + wsi.Titel + "/" + fileName;
+            var reportLink = User.Identity.GetUserName() + "/" + "WSI " + wsi.Titel + "/" + fileName+" ";
+            var evaluationLink = root + reportLink.Replace("/", @"\");
+            Process first = new Process();
+            first.StartInfo.FileName = @"C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Release\SharpnessExplorationCurrent.exe";
+            first.StartInfo.Arguments = evaluationLink + @"\" + fileName +" "+ evaluationLink;
+            first.Start();
+
+            first.WaitForExit();
+
             var report = new Report();
             report.ReglamentId = _repoReglaments.GetReglamentByTitel("Default").ReglamentId;
             report.Comment = "some words";
