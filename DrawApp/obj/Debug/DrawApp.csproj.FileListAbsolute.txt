@@ -1,0 +1,6 @@
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\DrawApp\bin\Debug\DrawApp.exe.config
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\DrawApp\bin\Debug\DrawApp.exe
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\DrawApp\bin\Debug\DrawApp.pdb
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\DrawApp\obj\Debug\DrawApp.csprojResolveAssemblyReference.cache
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\DrawApp\obj\Debug\DrawApp.exe
+C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\DrawApp\obj\Debug\DrawApp.pdb
