@@ -95,7 +95,7 @@ namespace Sharpness.WebApp.Controllers
             var evaluationLink = root + reportLink.Replace("/", @"\");
             Process first = new Process();
             first.StartInfo.FileName = @"C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Release\SharpnessExplorationCurrent.exe";
-            first.StartInfo.Arguments = evaluationLink + @"\" + fileName +" "+ evaluationLink;
+            first.StartInfo.Arguments = String.Format(@"""{0}""", wsi.Path);
             first.Start();
 
             first.WaitForExit();
