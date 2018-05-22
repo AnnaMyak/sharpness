@@ -1,0 +1,42 @@
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\SharpnessExplorationCurrent.exe.config
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\SharpnessExplorationCurrent.exe
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\SharpnessExplorationCurrent.pdb
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\#Accessory.CognitionMaster.WholeSlideImageSupport.dll
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\#Accessory.dll
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\#Accessory.Imaging.dll
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\#AccessoryExtension.dll
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\VMscope.InteropCore.dll
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\VMscope.Resources.dll
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\VMscope.VirtualSlideAccess.dll
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\ZeissImageLib.dll
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\#Accessory.xml
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\#Accessory.Imaging.xml
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\VMscope.InteropCore.xml
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\VMscope.Resources.xml
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\VMscope.VirtualSlideAccess.xml
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Debug\SharpnessExplorationCurrent.exe.config
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Debug\SharpnessExplorationCurrent.csproj.CoreCompileInputs.cache
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Debug\SharpnessExplorationCurrent.exe
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Debug\SharpnessExplorationCurrent.pdb
+C:\Users\seidelf\source\repos\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Debug\SharpnessExplorationCurrent.csprojResolveAssemblyReference.cache
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\SharpnessExplorationCurrent.exe.config
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\SharpnessExplorationCurrent.exe
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\SharpnessExplorationCurrent.pdb
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\#Accessory.CognitionMaster.WholeSlideImageSupport.dll
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\#Accessory.dll
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\#Accessory.Imaging.dll
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\#AccessoryExtension.dll
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\VMscope.InteropCore.dll
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\VMscope.Resources.dll
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\VMscope.VirtualSlideAccess.dll
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\ZeissImageLib.dll
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\#Accessory.xml
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\#Accessory.Imaging.xml
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\VMscope.InteropCore.xml
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\VMscope.Resources.xml
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Debug\VMscope.VirtualSlideAccess.xml
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Debug\SharpnessExplorationCurrent.csprojResolveAssemblyReference.cache
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Debug\SharpnessExplorationCurrent.exe.config
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Debug\SharpnessExplorationCurrent.csproj.CoreCompileInputs.cache
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Debug\SharpnessExplorationCurrent.exe
+C:\Users\AnnaToshiba2\Desktop\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Debug\SharpnessExplorationCurrent.pdb

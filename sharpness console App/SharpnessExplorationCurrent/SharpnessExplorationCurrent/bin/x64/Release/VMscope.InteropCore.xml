@@ -1,0 +1,970 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VMscope.InteropCore</name>
+    </assembly>
+    <members>
+        <member name="T:VMscope.InteropCore.ImageStreaming.FocalPlanesInfo">
+            <summary>Bietet Informationen zu den Fokus-Ebenen eines Virtuellen Schnittes.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.FocalPlanesInfo.#ctor(System.Int32,System.Int32,System.Single)">
+            <summary>Erzeugt eine neue Instanz mit den angegebenen Werten.</summary>
+            <param name="minimum">Gibt die Nummer der untersten Fokus-Ebene an.</param>
+            <param name="maximum">Gibt die Nummer der obersten Fokus-Ebene an.</param>
+            <param name="zRange">Gibt den Abstand zwischen der ersten und der letzten Fokus-Ebene in µm an.
+            </param>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.FocalPlanesInfo.ToString">
+            <summary>Konvertiert diese Struktur in eine lesbare Zeichenfolge.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.FocalPlanesInfo.Minimum">
+            <summary>Ruft die Nummer der untersten Fokus-Ebene ab, oder legt diese fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.FocalPlanesInfo.Maximum">
+            <summary>Ruft die Nummer der obersten Fokus-Ebene ab, oder legt diese fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.FocalPlanesInfo.ZRange">
+            <summary>Ruft den Abstand zwischen der ersten und der letzten Fokus-Ebene in µm ab, oder legt 
+            diesen fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.FocalPlanesInfo.IsEmpty">
+            <summary>Ruft einen Wert ab, der angibt, ob alle Werte auf 0 gesetzt sind.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.FocalPlanesInfo.Empty">
+            <summary>Erzeugt eine neue Struktur mit allen Werten auf 0 gesetzt.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.ImageStreaming.ISRect">
+            <summary>Speichert sechs Integer-Werte die einen Bereich in einem Bild repräsentieren.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.ISRect.#ctor(System.Drawing.Rectangle)">
+            <summary>Erstellt und initialisiert eine neue Instanz.</summary>
+            <param name="area">Gibt die Koordinaten in Schnitt-Dimensionen an.</param>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.ISRect.#ctor(VMscope.InteropCore.ImageStreaming.ISRect)">
+            <summary>Erstellt und initialisiert eine neue Instanz.</summary>
+            <param name="rect">Gibt die Koordinaten des Bereichs an.</param>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.ISRect.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>Erstellt und initialisiert eine neue Instanz.</summary>
+            <param name="x">Gibt die X-Koordinate der linken oberen Ecke an.</param>
+            <param name="y">Gibt die Y-Koordinate der linken oberen Ecke an.</param>
+            <param name="slidew">Gibt die Breite in Schnitt-Dimensionen an.</param>
+            <param name="slideh">Gibt die Höhe in Schnitt-Dimensionen an.</param>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.ISRect.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>Erstellt und initialisiert eine neue Instanz.</summary>
+            <param name="x">Gibt die X-Koordinate der linken oberen Ecke an.</param>
+            <param name="y">Gibt die Y-Koordinate der linken oberen Ecke an.</param>
+            <param name="slidew">Gibt die Breite in Schnitt-Dimensionen an.</param>
+            <param name="slideh">Gibt die Höhe in Schnitt-Dimensionen an.</param>
+            <param name="scrw">Gibt die Breite in Darstellungs-Dimensionen an.</param>
+            <param name="scrh">Gibt die Höhe in Darstellungs-Dimensionen an.</param>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.ISRect.FromTile(System.Int32,System.Int32,System.Int32,System.Drawing.Size)">
+            <summary>Berechnet den entsprechenden Bildbereich der angegebenen Kachel.</summary>
+            <param name="level">Gibt den Index der Pyramidenstufe an.</param>
+            <param name="x">Gibt den Index der Kachel in X-Richtung an.</param>
+            <param name="y">Gibt den Index der Kachel in Y-Richtung an.</param>
+            <param name="tileSize">Gibt die Größe der Kachel an.</param>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.ISRect.FromTile(System.Int32,System.Int32,System.Int32,System.Drawing.Size,System.Drawing.Size)">
+            <summary>Berechnet den entsprechenden Bildbereich der angegebenen Kachel.</summary>
+            <param name="level">Gibt den Index der Pyramidenstufe an.</param>
+            <param name="x">Gibt den Index der Kachel in X-Richtung an.</param>
+            <param name="y">Gibt den Index der Kachel in Y-Richtung an.</param>
+            <param name="tileSize">Gibt die Größe der Kachel an.</param>
+            <param name="imageSize">Gibt die Größe des Bildes an.</param>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.ISRect.FindOptimalScale">
+            <summary>Ruft die Skalierung ab, mit der dieser Bereich optimal verwendet werden kann.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.ISRect.FindOptimalLevel">
+            <summary>Ruft das Level ab, mit dem dieser Bereich optimal verwendet werden kann.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.ISRect.FindNearestLevel">
+            <summary>Berechnet das ganzzahlige Level, das den kleinsten Rundungsfehler verursacht.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.ISRect.ToRectangle">
+            <summary>Konvertiert diese Struktur in ein System.Drawing.Rectangle.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.ISRect.ToString">
+            <summary>Konvertiert diese Struktur in eine lesbare Zeichenfolge.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.ISRect.X">
+            <summary>Ruft die X-Koordinate der linken oberen Ecke ab, oder legt diese fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.ISRect.Y">
+            <summary>Ruft die Y-Koordinate der linken oberen Ecke ab, oder legt diese fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.ISRect.SlideW">
+            <summary>Ruft die Breite in Schnitt-Dimensionen ab, oder legt diese fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.ISRect.SlideH">
+            <summary>Ruft die Höhe in Schnitt-Dimensionen ab, oder legt diese fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.ISRect.ScrW">
+            <summary>Ruft die Breite in Darstellungs-Dimensionen ab, oder legt diese fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.ISRect.ScrH">
+            <summary>Ruft die Höhe in Darstellungs-Dimensionen ab, oder legt diese fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.ISRect.Location">
+            <summary>Ruft die Koordinaten der linken oberen Ecke ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.ISRect.Right">
+            <summary>Ruft die X-Koordinate der rechten unteren Ecke ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.ISRect.Bottom">
+            <summary>Ruft die Y-Koordinate der rechten unteren Ecke ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.ISRect.Middle">
+            <summary>Ruft den Mittelpunkt mit ganzzahligen Koordinaten ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.ISRect.MiddleF">
+            <summary>Ruft den Mittelpunkt mit Gleitkomma-Koordinaten ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.ISRect.ScaleX">
+            <summary>Ruft die Skalierung in X-Richtung mit ScrW/SlideW ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.ISRect.ScaleY">
+            <summary>Ruft die Skalierung in Y-Richtung mit ScrH/SlideH ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.ISRect.IsEmpty">
+            <summary>Ruft einen Wert ab, der angibt, ob alle Werte auf 0 gesetzt sind.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.ISRect.Empty">
+            <summary>Erzeugt eine neue Struktur mit allen Werten auf 0 gesetzt.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.ImageStreaming.IStreamingImage">
+            <summary>Definiert den Zugriff auf Bilder durch Image-Streaming.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.IStreamingImage.GetImagePart(VMscope.InteropCore.ImageStreaming.ISRect)">
+            <summary>Ruft ein System.Drawing.Bitmap ab, das den angegebenen Bereich enthält.</summary>
+            <param name="r">Gibt den Bereich an der geladen wird.</param>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.IStreamingImage.GetImagePart(VMscope.InteropCore.ImageStreaming.ISRect,System.Int32)">
+            <summary>Ruft ein System.Drawing.Bitmap ab, das den angegebenen Bereich enthält.</summary>
+            <param name="r">Gibt den Bereich an der geladen wird.</param>
+            <param name="plane">Gibt den Index der Fokus-Ebene an aus der der Bereich geladen wird.</param>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.IStreamingImage.GetImagePart(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>Ruft ein System.Drawing.Bitmap ab, das den angegebenen Bereich enthält.</summary>
+            <param name="x">Gibt die X-Koordinate der linken oberen Ecke des Bereichs an.</param>
+            <param name="y">Gibt die Y-Koordinate der linken oberen Ecke des Bereichs an.</param>
+            <param name="slidew">Gibt die Breite des Bereichs in Schnitt-Dimensionen an.</param>
+            <param name="slideh">Gibt die Höhe des Bereichs in Schnitt-Dimensionen an.</param>
+            <param name="scrw">Gibt die Breite des Bereichs in Darstellungs-Dimensionen an.</param>
+            <param name="scrh">Gibt die Höhe des Bereichs in Darstellungs-Dimensionen an.</param>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.IStreamingImage.GetImagePart(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>Ruft ein System.Drawing.Bitmap ab, das den angegebenen Bereich enthält.</summary>
+            <param name="x">Gibt die X-Koordinate der linken oberen Ecke des Bereichs an.</param>
+            <param name="y">Gibt die Y-Koordinate der linken oberen Ecke des Bereichs an.</param>
+            <param name="slidew">Gibt die Breite des Bereichs in Schnitt-Dimensionen an.</param>
+            <param name="slideh">Gibt die Höhe des Bereichs in Schnitt-Dimensionen an.</param>
+            <param name="scrw">Gibt die Breite des Bereichs in Darstellungs-Dimensionen an.</param>
+            <param name="scrh">Gibt die Höhe des Bereichs in Darstellungs-Dimensionen an.</param>
+            <param name="plane">Gibt den Index der Fokus-Ebene an aus der der Bereich geladen wird.</param>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.IStreamingImage.GetImageTile(System.Int32,System.Int32,System.Int32)">
+            <summary>Ruft ein System.Drawing.Bitmap ab, das die angegebene Bildkachel enthält.</summary>
+            <param name="level">Gibt den Index der Pyramidenstufe an aus der die Kachel geladen wird.</param>
+            <param name="x">Gibt den Index der Kachel in X-Richtung an.</param>
+            <param name="y">Gibt den Index der Kachel in Y-Richtung an.</param>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.IStreamingImage.GetImageTile(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>Ruft ein System.Drawing.Bitmap ab, das die angegebene Bildkachel enthält.</summary>
+            <param name="level">Gibt den Index der Pyramidenstufe an aus der die Kachel geladen wird.</param>
+            <param name="x">Gibt den Index der Kachel in X-Richtung an.</param>
+            <param name="y">Gibt den Index der Kachel in Y-Richtung an.</param>
+            <param name="plane">Gibt den Index der Fokus-Ebene an aus der der Bereich geladen wird.</param>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.IStreamingImage.GetImageTileRaw(System.Int32,System.Int32,System.Int32,System.String@)">
+            <summary>Ruft die Binärdaten der angegebene Bildkachel in dem originalen Dateiformat ab.</summary>
+            <param name="level">Gibt den Index der Pyramidenstufe an aus der die Kachel geladen wird.</param>
+            <param name="x">Gibt den Index der Kachel in X-Richtung an.</param>
+            <param name="y">Gibt den Index der Kachel in Y-Richtung an.</param>
+            <param name="format">Enthält nach dem Aufruf den MIME-Typ des Dateiformats.</param>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.IStreamingImage.GetImageTileRaw(System.Int32,System.Int32,System.Int32,System.Int32,System.String@)">
+            <summary>Ruft die Binärdaten der angegebene Bildkachel in dem originalen Dateiformat ab.</summary>
+            <param name="level">Gibt den Index der Pyramidenstufe an aus der die Kachel geladen wird.</param>
+            <param name="x">Gibt den Index der Kachel in X-Richtung an.</param>
+            <param name="y">Gibt den Index der Kachel in Y-Richtung an.</param>
+            <param name="plane">Gibt den Index der Fokus-Ebene an aus der der Bereich geladen wird.</param>
+            <param name="format">Enthält nach dem Aufruf den MIME-Typ des Dateiformats.</param>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.IStreamingImage.GetLabelImage">
+            <summary>Ruft ein System.Drawing.Bitmap ab, das den Label-Bereich des Schnittes darstellt.
+            </summary>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.IStreamingImage.GetTissueImage">
+            <summary>Ruft ein System.Drawing.Bitmap ab, das den Gewebe-Bereich des Schnittes darstellt.
+            </summary>
+        </member>
+        <member name="M:VMscope.InteropCore.ImageStreaming.IStreamingImage.GetGlassSlideImage">
+            <summary>Ruft ein System.Drawing.Bitmap ab, das den Glassobjektträger darstellt.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.IStreamingImage.Name">
+            <summary>Ruft den Namen des Bildes ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.IStreamingImage.Url">
+            <summary>Ruft die Url ab, mit der dieses Bild geöffnet wurde.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.IStreamingImage.IsFile">
+            <summary>Ruft einen Wert ab, der angibt, ob das Bild aus dem lokalen Dateisystem stammt.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.IStreamingImage.Size">
+            <summary>Ruft die Größe des Bildes in Pixel ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.IStreamingImage.Dpi">
+            <summary>Ruft die Auflösung des Bildes in Dpi ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.IStreamingImage.SourceLens">
+            <summary>Ruft die Vergrößerung der Linse ab, mit der dieses Bild gescannt wurde.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.IStreamingImage.FocalPlanes">
+            <summary>Ruft Informationen zu den Fokus-Ebenen ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.IStreamingImage.IsDirectTileAccessSupported">
+            <summary>Ruft ab, ob direkt auf Kacheln und Pyramidenstufen zugegriffen werden kann.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.IStreamingImage.IsRawTileAccessSupported">
+            <summary>Ruft ab, ob auf Kacheln in dem gespeicherten Format zugegriffen werden kann.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.IStreamingImage.Levels">
+            <summary>Ruft ab, wieviele Pyramidenstufen vorhanden sind.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.IStreamingImage.TileSize">
+            <summary>Ruft die Kachelgröße in Pixel ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.IStreamingImage.IsLabelImageAvailable">
+            <summary>Ruft einen Wert ab, der angibt, ob ein Übersichtsbild vom Label-Bereich des 
+            Glasobjektträgers verfügbar ist.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.IStreamingImage.IsTissueImageAvailable">
+            <summary>Ruft einen Wert ab, der angibt, ob ein Übersichtsbild vom Gewebs-Bereich des 
+            Glasobjektträgers verfügbar ist.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.IStreamingImage.IsGlassSlideImageAvailable">
+            <summary>Ruft ein Wert ab, der angibt, ob ein Übersichtsbild vom Glasobjektträger verfügbar ist.
+            </summary>
+        </member>
+        <member name="P:VMscope.InteropCore.ImageStreaming.IStreamingImage.IsDisposed">
+            <summary>Ruft einen Wert ab, der angibt, ob dieses Objekt bereits freigegeben wurde.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.Security.AuthenticationEventArgs">
+            <summary>Bietet Daten für Authentifizierungs-Ereignisse.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.Security.AuthenticationEventArgs.#ctor(System.String,System.String)">
+            <summary>Erstellt und initialisiert eine neue Instanz.</summary>
+            <param name="host">Gibt den Host an, der die Authentifizierung verlangt.</param>
+            <param name="message">Gibt einen Meldungstext an, der dem Nutzer zur Abfrage von Nutzer-Namen und 
+            Passwort angezeigt werden kann.</param>
+        </member>
+        <member name="P:VMscope.InteropCore.Security.AuthenticationEventArgs.Username">
+            <summary>Ruft den Nutzer-Namen ab, der zur Authentifizierung verwendet werden soll, oder legt 
+            diesen fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.Security.AuthenticationEventArgs.Password">
+            <summary>Ruft das Passwort ab, das zur Authentifizierung verwendet werden soll, oder legt dieses 
+            fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.Security.AuthenticationEventArgs.Cancel">
+            <summary>Ruft ab oder legt fest, ob der Vorgang abgebrochen werden soll.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.Security.AuthenticationEventArgs.Message">
+            <summary>Enthält einen Meldungstext, der dem Nutzer zur Abfrage von Nutzer-Namen und Passwort 
+            angezeigt werden kann.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.Security.AuthenticationEventArgs.Host">
+            <summary>Ruft den Host ab, der die Authentifizierung verlangt.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.Security.AuthenticationEventHandler">
+            <summary>Methode die Authentifizierungs-Ereignisse verarbeitet.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.AnnotationAccessLocation">
+            <summary>Listet Ansprung-Optionen für Annotationen auf.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationAccessLocation.Anchor">
+            <summary>Gibt an, dass eine Annotation am Ankerpunkt angesprungen wird.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationAccessLocation.LeftUpper">
+            <summary>Gibt an, dass eine Annotation links oben angesprungen wird.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationAccessLocation.Middle">
+            <summary>Gibt an, dass eine Annotation in der Mitte angesprungen wird.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.AnnotationBorderStyle">
+            <summary>Listet Stile des Annotations-Rands auf.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationBorderStyle.Solid">
+            <summary>Gibt an, dass der Annotations-Rand durchgezogen gezeichnet wird.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationBorderStyle.Dashed">
+            <summary>Gibt an, dass der Annotations-Rand gestrichelt gezeichnet wird.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationBorderStyle.Dotted">
+            <summary>Gibt an, dass der Annotations-Rand gepunktet gezeichnet wird.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.AnnotationEventArgs">
+            <summary>Bietet Daten für Annotations-Ereignisse.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.AnnotationEventArgs.#ctor(VMscope.InteropCore.VirtualMicroscopy.IAnnotation)">
+            <summary>Erstellt und initialisiert eine neue Instanz.</summary>
+            <param name="annotation">Gibt die Annotation an, die dem Ereignis zugeordnet ist.</param>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.AnnotationEventArgs.Annotation">
+            <summary>Ruft die Annotation ab, die dem Ereignis zugeordnet ist.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.AnnotationEventHandler">
+            <summary>Methode die Annotations-Ereignisse verarbeitet.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.BinaryObjectEventArgs">
+            <summary>Bietet Daten für Ereignisse mit binären Objekten.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.BinaryObjectEventArgs.#ctor(VMscope.InteropCore.VirtualMicroscopy.IBinaryObject)">
+            <summary>Erstellt und initialisiert eine neue Instanz.</summary>
+            <param name="binaryObject">Gibt das binäre Objekt an, das dem Ereignis zugeordnet ist.</param>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.BinaryObjectEventArgs.BinaryObject">
+            <summary>Ruft das binäre Objekt ab, das dem Ereignis zugeordnet ist.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.BinaryObjectEventHandler">
+            <summary>Methode die Ereignisse mit binären Objekten verarbeitet.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.BookmarkEventArgs">
+            <summary>Bietet Daten für Bookmark-Ereignisse.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.BookmarkEventArgs.#ctor(VMscope.InteropCore.VirtualMicroscopy.IBookmark)">
+            <summary>Erstellt und initialisiert eine neue Instanz.</summary>
+            <param name="bookmark">Gibt das Bookmark an, das dem Ereignis zugeordnet ist.</param>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.BookmarkEventArgs.Bookmark">
+            <summary>Ruft das Bookmark ab, das dem Ereignis zugeordnet ist.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.BookmarkEventHandler">
+            <summary>Methode die Bookmark-Ereignisse verarbeitet.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.ElementNotFoundException">
+            <summary>Exception die ausgelöst wird, wenn ein Element nicht gefunden werden konnte.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.ElementNotFoundException.#ctor(System.Int32)">
+            <summary>Erstellt und initialisiert eine neue Instanz.</summary>
+            <param name="id">Gibt die ID des Elements an, das nicht gefunden werden konnte.</param>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.ElementNotFoundException.Id">
+            <summary>Ruft die ID des Elements ab, das nicht gefunden werden konnte.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.IAnnotationRenderingAttributes">
+            <summary>Bietet Zugriff auf Parameter für das Rendering von Annotationen.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotationRenderingAttributes.Font">
+            <summary>Ruft den Font ab, mit dem die Annotation gerendert wird.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotationRenderingAttributes.LPen">
+            <summary>Ruft den Stift ab, mit dem die Annotation normal gerendert wird.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotationRenderingAttributes.HPen">
+            <summary>Ruft den Stift ab, mit dem die Annotation hervorgehoben gerendert wird.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotationRenderingAttributes.LForeBrush">
+            <summary>Ruft den Pinsel ab, mit dem der Vordergrund der Annotation normal gerendert wird.
+            </summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotationRenderingAttributes.HForeBrush">
+            <summary>Ruft den Pinsel ab, mit dem der Vordergrund der Annotation hervorgehoben gerendert wird.
+            </summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotationRenderingAttributes.LBackBrush">
+            <summary>Ruft den Pinsel ab, mit dem der Hintergrund der Annotation normal gerendert wird.
+            </summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotationRenderingAttributes.HBackBrush">
+            <summary>Ruft den Pinsel ab, mit dem der Hintergrund der Annotation hervorgehoben gerendert wird.
+            </summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotationRenderingAttributes.TextRenderingLayoutWidth">
+            <summary>Ruft die Layout-Breite zum Rendern des permanent angezeigten Texts ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotationRenderingAttributes.IsDisposed">
+            <summary>Ruft einen Wert ab, der angibt, ob dieses Objekt bereits freigegeben wurde.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.AnnotationTextRenderingSource">
+            <summary>Listet Quellen für permanent angezeigten Text von Annotation auf.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationTextRenderingSource.None">
+            <summary>Gibt an, dass keine Information permanent angezeigt wird.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationTextRenderingSource.Name">
+            <summary>Gibt an, dass der Name der Annotation permanent angezeigt wird.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationTextRenderingSource.Text">
+            <summary>Gibt an, dass der Text der Annotation permanent angezeigt wird.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationTextRenderingSource.Measurement">
+            <summary>Gibt an, dass der Messwert der Annotation permanent angezeigt wird.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.AnnotationType">
+            <summary>Listet Typen von Annotationen auf.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationType.Unknown">
+            <summary>Gibt an, dass der Typ der Annotation unbekannt ist.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationType.Text">
+            <summary>Gibt an, dass die Annotation vom Typ Text ist.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationType.Arrow">
+            <summary>Gibt an, dass die Annotation vom Typ Pfeil ist.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationType.Line">
+            <summary>Gibt an, dass die Annotation vom Typ Linie ist.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationType.PolygonLine">
+            <summary>Gibt an, dass die Annotation vom Typ Polygon-Linie ist.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationType.Ellipse">
+            <summary>Gibt an, dass die Annotation vom Typ Ellipse ist.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationType.Rectangle">
+            <summary>Gibt an, dass die Annotation vom Typ Rechteck ist.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.AnnotationType.Polygon">
+            <summary>Gibt an, dass die Annotation vom Typ Polygon ist.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.IAnnotation">
+            <summary>Bietet Zugriff auf Annotationen.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement">
+            <summary>Bietet Zugriff auf Meta-Elemente von Virtuellen Schnitten.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.Save">
+            <summary>Speichert Änderungen an diesem Element.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.Delete">
+            <summary>Entfernt dieses Element aus dem Virtuellen Schnitt.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.IncreaseOrder(System.Boolean)">
+            <summary>Erhöht die Ordnungszahl dieses Elements um eine Stufe. Ist toMax true wird die 
+            Ordnungszahl auf das Maximum gesetzt.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.DecreaseOrder(System.Boolean)">
+            <summary>Verringert die Ordnungszahl dieses Elements um eine Stufe. Ist toMin true wird die 
+            Ordnungszahl auf das Minimum gesetzt.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.Id">
+            <summary>Ruft die eindeutige Id dieses Elements ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.Name">
+            <summary>Ruft den Namen dieses Elements ab, oder legt diesen fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.Text">
+            <summary>Ruft den Text zu diesem Element ab, oder legt diesen fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.SecurityFlag">
+            <summary>Ruft die Sicherheits-Einstellungen dieses Elements ab, oder legt diese fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.User">
+            <summary>Ruft den Namen des Benutzers ab der aktuell auf dieses Element zugreift.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.Author">
+            <summary>Ruft den Namen des Autors von diesem Element ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.IsAuthorContext">
+            <summary>Ruft ab ob der aktuelle Nutzer der Autor des Elements ist.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.IsReadOnlyContext">
+            <summary>Ruft einen Wert ab, der angibt, ob dieses Element in einem schreibgeschützten Kontext 
+            geöffnet wurde.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.IsSortable">
+            <summary>Gibt an, ob die Ordnungszahl dieses Elements verändert werden kann.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.IsFirst">
+            <summary>Gibt an, ob die Ordnungszahl dieses Elements dem Minimum entspricht.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.IsLast">
+            <summary>Gibt an, ob die Ordnungszahl dieses Elements dem Maximum entspricht.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideMetaElement.Slide">
+            <summary>Ruft den Schnitt ab, zu dem dieses Element gehört.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.GetPointAt(System.Int32)">
+            <summary>Ruft den Annotations-Punkt an dem angegebenen Index ab.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.GetPoints">
+            <summary>Ruft ein neues Array ab, das alle Punkte der Annotation enthält.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.SetPointAt(System.Int32,System.Drawing.Point)">
+            <summary>Setzt den Annotations-Punkt an dem angegebenen Index auf den angegebenen Wert.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.SetPoints(System.Drawing.Point[])">
+            <summary>Ändert die Punkte der Annotation auf die angegebenen Werte.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.AppendPoints(System.Drawing.Point)">
+            <summary>Fügt den angegebenen Annotations-Punkt hinzu.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.Move(System.Drawing.Point)">
+            <summary>Verschiebt diese Annotation um das angegebene Offset.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.Move(System.Int32,System.Int32)">
+            <summary>Verschiebt diese Annotation um das angegebene Offset.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.FindOptimalGotoLocation">
+            <summary>Berechnet die Position zu der für die Anzeige der Annotation navigiert werden sollte.
+            </summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.GetMeasurement">
+            <summary>Ruft die Größeninformation zu dieser Annotation ab.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.GetRenderingAttributes">
+            <summary>Ruft die für das Rendering der Annotation erforderlichen Attribute ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.Item(System.Int32)">
+            <summary>Ruft den Punkt am Index ab, oder legt diesen fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.TextRenderingSource">
+            <summary>Ruft die Quelle für den permanent angezeigten Text ab, oder legt diese fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.TextRenderingOffset">
+            <summary>Ruft den Abstand des permanent angezeigten Texts zum Ankerpunkt der Annotation ab, oder 
+            legt diesen fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.TextRenderingFontSize">
+            <summary>Ruft die Schriftgröße für den permanent angezeigten Text ab, oder legt diese fest. 
+            Gültige Werte liegen zwischen 6 und 48.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.TextRenderingForeColor">
+            <summary>Ruft die Schriftfarbe für den permanent angezeigten Text ab, oder legt diese fest.
+            </summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.TextRenderingBackColor">
+            <summary>Ruft die Hintergrundfarbe für den permanent angezeigten Text ab, oder legt diese fest.
+            </summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.Color">
+            <summary>Ruft die Farbe der Annotation ab, oder legt diese fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.Scale">
+            <summary>Ruft die Vergrößerung ab, in der die Annotation angesprungen wird, oder legt diese fest.
+            </summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.Width">
+            <summary>Ruft die Strichstärke der Annotation ab, oder legt diese fest. Gültige Werte liegen 
+            zwischen 1 und 99.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.Opacity">
+            <summary>Ruft die Deckkraft der Annotation ab, oder legt diese fest. Gültige Werte liegen 
+            zwischen 0 und 1.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.BorderStyle">
+            <summary>Ruft den Stil der Annotation ab, oder legt diesen fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.AccessLocation">
+            <summary>Ruft die Ansprung-Option der Annotation ab, oder legt diese fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.Visible">
+            <summary>Ruft ab oder legt fest, ob die Annotation angezeigt wird.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.PopupName">
+            <summary>Ruft ab oder legt fest, ob der Name bei Maus-über angezeigt wird.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.PopupText">
+            <summary>Ruft ab oder legt fest, ob der Text bei Maus-über angezeigt wird.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.PopupMeasurement">
+            <summary>Ruft ab oder legt fest, ob die Größeninformation bei Maus-über angezeigt wird.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.AnnotationType">
+            <summary>Ruft den Typ der Annotation ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.RenderedText">
+            <summary>Ruft den Text ab, der permanent angezeigt wird.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.TextRenderingBounds">
+            <summary>Ruft den Darstellungs-Bereich des permanent angezeigten Texts relativ zum Ankerpunkt der 
+            Annotation ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.BoundingBox">
+            <summary>Ruft den Bereich ab über den sich die Annotation erstreckt. Der permanent angezeigte 
+            Text ist darin nicht berücksichtigt.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.Length">
+            <summary>Ruft ab wieviele Punkte in der Annotations-Geometrie enthalten sind.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.IsScaling">
+            <summary>Ruft einen Wert ab, der angibt, ob die Größe dieser Annotation an die Skalierung des 
+            Bildausschnitts angepasst wird. Ist dieser Wert <c>true</c>, sind alle Positionen relative 
+            Angaben zum Ankerpunkt.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IAnnotation.Dpi">
+            <summary>Ruft die Auflösung ab, die den Messwerten zugrunde liegt.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.IBookmark">
+            <summary>Bietet Zugriff auf Bookmarks.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IBookmark.Location">
+            <summary>Ruft die Position des Bookmarks ab, oder legt diese fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IBookmark.Scale">
+            <summary>Ruft die Vergrößerung ab die dem Bookmark zugewiesen ist, oder legt diese fest.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.IBinaryObject">
+            <summary>Bietet Zugriff auf einen binären Datencontainer.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IBinaryObject.GetLength">
+            <summary>Ruft ab, wieviele Bytes in diesem Objekt gespeichert sind.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IBinaryObject.GetData">
+            <summary>Ruft die binären Daten ab, die in diesem Container gespeichert sind.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IBinaryObject.SetData(System.Byte[])">
+            <summary>Ändert die binären Daten des Containers auf den angegebenen Wert.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IBinaryObject.ContentType">
+            <summary>Ruft den Inhaltstyp (MIME) des Objekts ab, oder legt diesen fest.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.IMeasurement">
+            <summary>Bietet Zugriff auf Größeninformationen von Annotationen.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IMeasurement.ToString">
+            <summary>Konvertiert diese Struktur in eine lesbare Zeichenfolge.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IMeasurement.Value">
+            <summary>Ruft den Messwert in einer optimierten Einheit ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IMeasurement.Unit">
+            <summary>Ruft die optimierte Einheit des Messwerts (z.B. µm, mm, cm) ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IMeasurement.OriginalValue">
+            <summary>Ruft den Messwert in der ursprünglichen Einheit ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IMeasurement.MeasurementType">
+            <summary>Ruft den Typ der Größeninformation ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IMeasurement.IsEmpty">
+            <summary>Ruft einen Wert ab, der angibt, ob alle Werte auf deren Default gesetzt sind.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.ObjectDataComposite`1">
+            <summary>Verwaltet ein binäres Objekt und dazugehörige Daten.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.ObjectDataComposite`1.#ctor(VMscope.InteropCore.VirtualMicroscopy.IBinaryObject,`0)">
+            <summary>Erstellt und initialisiert eine neue Instanz.</summary>
+            <param name="binaryObject">Gibt das binäre Objekt an.</param>
+            <param name="data">Gibt die dazugehörigen Daten an.</param>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.ObjectDataComposite`1.Object">
+            <summary>Ruft das binäre Objekt ab, oder legt dieses fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.ObjectDataComposite`1.Data">
+            <summary>Ruft die dazugehörigen Daten ab, oder legt diese fest.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideDirectory">
+            <summary>Repräsentiert ein Verzeichnis eines Schnitt-Archivs.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideDirectory.#ctor(System.String,System.String,VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideArchive)">
+            <summary>Erstellt und initialisiert eine neue Instanz.</summary>
+            <param name="name">Gibt den Namen des Verzeichnisses an.</param>
+            <param name="path">Gibt den relativen Pfad des Verzeichnisses innerhalb des Archivs an.</param>
+            <param name="archive">Gibt das Archiv an, zu dem dieses Verzeichnis gehört.</param>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideDirectory.GetDirectories">
+            <summary>Ruft die Liste der enthaltenen Verzeichnisse ab.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideDirectory.GetDocuments">
+            <summary>Ruft die Liste der enthaltenen Dokumente ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideDirectory.Name">
+            <summary>Ruft den Namen des Verzeichnisses ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideDirectory.Path">
+            <summary>Ruft den relativen Pfad des Verzeichnisses innerhalb des Archivs ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideDirectory.Archive">
+            <summary>Ruft das Archiv ab, zu dem dieses Verzeichnis gehört.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideDirectory.Parent">
+            <summary>Ruft das übergeordnete Verzeichnis ab.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide">
+            <summary>Bietet Zugriff auf Virtuelle Schnitte.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.SetPresentation(VMscope.InteropCore.VirtualMicroscopy.Presentation)">
+            <summary>Setzt die Darstellungs-Einstellungen auf den angegebenen Wert.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.GetAnnotations">
+            <summary>Ruft die Liste der Annotationen ab, die in diesem Kontext verfügbar sind.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.GetAnnotation(System.Int32)">
+            <summary>Ruft die Annotation mit der angegebenen Id ab.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.CreateAnnotation(VMscope.InteropCore.VirtualMicroscopy.AnnotationType)">
+            <summary>Erzeugt eine neue Annotation in diesem Virtuellen Schnitt.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.IncreaseOrder(VMscope.InteropCore.VirtualMicroscopy.IAnnotation,System.Boolean)">
+            <summary>Erhöht die Ordnungszahl der angegebenen Annotation um eine Stufe. Ist toMax true wird 
+            die Ordnungszahl auf das Maximum gesetzt.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.DecreaseOrder(VMscope.InteropCore.VirtualMicroscopy.IAnnotation,System.Boolean)">
+            <summary>Verringert die Ordnungszahl der angegebenen Annotation um eine Stufe. Ist toMin true 
+            wird die Ordnungszahl auf das Minimum gesetzt.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.Save(VMscope.InteropCore.VirtualMicroscopy.IAnnotation)">
+            <summary>Speichert Änderungen der angegebenen Annotation.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.Delete(VMscope.InteropCore.VirtualMicroscopy.IAnnotation)">
+            <summary>Entfernt die angegebene Annotation aus diesem Virtuellen Schnitt.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.GetBookmarks">
+            <summary>Ruft die Liste der Bookmarks ab, die in diesem Kontext verfügbar sind.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.GetBookmark(System.Int32)">
+            <summary>Ruft das Bookmark mit der angegebenen Id ab.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.CreateBookmark">
+            <summary>Erzeugt ein neues Bookmark in diesem Virtuellen Schnitt.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.IncreaseOrder(VMscope.InteropCore.VirtualMicroscopy.IBookmark,System.Boolean)">
+            <summary>Erhöht die Ordnungszahl des angegebenen Bookmarks um eine Stufe. Ist toMax true wird die 
+            Ordnungszahl auf das Maximum gesetzt.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.DecreaseOrder(VMscope.InteropCore.VirtualMicroscopy.IBookmark,System.Boolean)">
+            <summary>Verringert die Ordnungszahl des angegebenen Bookmarks um eine Stufe. Ist toMin true wird 
+            die Ordnungszahl auf das Minimum gesetzt.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.Save(VMscope.InteropCore.VirtualMicroscopy.IBookmark)">
+            <summary>Speichert Änderungen des angegebenen Bookmarks.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.Delete(VMscope.InteropCore.VirtualMicroscopy.IBookmark)">
+            <summary>Entfernt das angegebene Bookmark aus diesem Virtuellen Schnitt.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.GetBinaryObjects">
+            <summary>Ruft die Liste aller binären Objekte ab, die in diesem Kontext verfügbar sind.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.GetBinaryObjects(System.String)">
+            <summary>Ruft die Liste aller binären Objekte mit dem angegebenen Namen ab.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.CreateBinaryObject">
+            <summary>Erzeugt ein neues binäres Objekt in diesem Virtuellen Schnitt.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.GetLength(VMscope.InteropCore.VirtualMicroscopy.IBinaryObject)">
+            <summary>Ruft ab, wieviele Bytes in dem angegebenen binären Objekt gespeichert sind.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.GetData(VMscope.InteropCore.VirtualMicroscopy.IBinaryObject)">
+            <summary>Ruft die Daten ab, die in dem angegebenen binären Objekt gespeichert sind.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.SetData(VMscope.InteropCore.VirtualMicroscopy.IBinaryObject,System.Byte[])">
+            <summary>Setzt die Daten, die in dem angegebenen binären Objekt gespeichert werden.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.Save(VMscope.InteropCore.VirtualMicroscopy.IBinaryObject)">
+            <summary>Speichert Änderungen des angegebenen binären Objektes.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.Delete(VMscope.InteropCore.VirtualMicroscopy.IBinaryObject)">
+            <summary>Entfernt das angegebene binäre Objekt aus diesem Virtuellen Schnitt.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.Text">
+            <summary>Ruft den Text des Schnittes ab, oder legt diesen fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.ReadOnly">
+            <summary>Ruft einen Wert ab, der angibt, ob dieser Schnitt schreibgeschützt ist.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide.Presentation">
+            <summary>Ruft die Darstellungs-Einstellungen des Schnittes ab.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideArchive">
+            <summary>Bietet Zugriff auf Archive von Virtuellen Schnitten.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideArchive.GetDirectories(System.String)">
+            <summary>Ruft die Liste aller Verzeichnisse in dem angegebenen virtuellen Pfad ab.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideArchive.GetDocuments(System.String)">
+            <summary>Ruft die Liste aller Dokumente in dem angegebenen virtuellen Pfad ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideArchive.Name">
+            <summary>Ruft den Namen des Archivs ab.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideArchive.Url">
+            <summary>Ruft die Url ab, mit der dieses Archiv geöffnet wurde.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.IVirtualSlideArchive.Root">
+            <summary>Ruft das Stammverzeichnis des Archivs ab.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.MeasurementType">
+            <summary>Listet Typen von Größeninformationen auf.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.MeasurementType.Undefined">
+            <summary>Gibt an, dass der Typ der Größeninformation unbekannt ist.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.MeasurementType.Distance">
+            <summary>Gibt an, dass der Typ der Größeninformation Distanz ist.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.MeasurementType.Area">
+            <summary>Gibt an, dass der Typ der Größeninformation Fläche ist.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.SecurityFlag">
+            <summary>Listet Sicherheits-Einstellungen auf.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.SecurityFlag.Private">
+            <summary>Gibt an, dass ein Element nur für den Autor sichtbar ist.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.SecurityFlag.Protected">
+            <summary>Gibt an, dass ein Element nur vom Autor geändert werden kann.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.SecurityFlag.Public">
+            <summary>Gibt an, dass ein Element von jedem Nutzer geändert werden kann.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.SlideEventArgs">
+            <summary>Bietet Daten für Ereignisse mit Virtuellen Schnitten.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.SlideEventArgs.#ctor(VMscope.InteropCore.VirtualMicroscopy.IVirtualSlide)">
+            <summary>Erstellt und initialisiert eine neue Instanz.</summary>
+            <param name="slide">Gibt den Schnitt an, der dem Ereignis zugeordnet ist.</param>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.SlideEventArgs.Slide">
+            <summary>Ruft den Schnitt ab, der dem Ereignis zugeordnet ist.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.SlideEventHandler">
+            <summary>Methode die Ereignisse mit Virtuellen Schnitten verarbeitet.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideDirectoryEventArgs">
+            <summary>Bietet Daten für Ereignisse mit Archiv-Verzeichnissen.</summary>
+        </member>
+        <member name="M:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideDirectoryEventArgs.#ctor(VMscope.InteropCore.VirtualMicroscopy.VirtualSlideDirectory)">
+            <summary>Erstellt und initialisiert eine neue Instanz.</summary>
+            <param name="directory">Gibt das Verzeichnis an, das dem Ereignis zugeordnet ist.</param>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideDirectoryEventArgs.Directory">
+            <summary>Ruft das Verzeichnis ab, das dem Ereignis zugeordnet ist.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideDirectoryEventHandler">
+            <summary>Methode die Ereignisse mit Archiv-Verzeichnissen verarbeitet.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFlip">
+            <summary>Listet die möglichen Spiegelungen von Virtuellen Schnitten auf.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFlip.None">
+            <summary>Gibt an, dass der Virtuelle Schnitt nicht gespiegelt ist.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFlip.Horizontal">
+            <summary>Gibt an, dass der Virtuelle Schnitt horizontal gespiegelt ist.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFlip.Vertical">
+            <summary>Gibt an, dass der Virtuelle Schnitt vertikal gespiegelt ist.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFlip.Both">
+            <summary>Gibt an, dass der Virtuelle Schnitt horizontal und vertikal gespiegelt ist.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat">
+            <summary>Listet Formate von Virtuellen Schnitten, Fällen und Archiven auf.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat.Unknown">
+            <summary>Gibt an, dass das Format unbekannt ist.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat.JPEG2000">
+            <summary>Gibt an, dass der Virtuelle Schnitt im JPEG2000-Format vorliegt.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat.VSF">
+            <summary>Gibt an, dass der Virtuelle Schnitt im VSF-Format vorliegt.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat.NDPi">
+            <summary>Gibt an, dass der Virtuelle Schnitt im NDPi-Format vorliegt.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat.MRXS">
+            <summary>Gibt an, dass der Virtuelle Schnitt im MRXS-Format vorliegt.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat.Zoomify">
+            <summary>Gibt an, dass der Virtuelle Schnitt im Zoomify-Format vorliegt.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat.SVS">
+            <summary>Gibt an, dass der Virtuelle Schnitt im SVS-Format vorliegt.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat.SCN">
+            <summary>Gibt an, dass der Virtuelle Schnitt im SVS-Format vorliegt.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat.TIFF">
+            <summary>Gibt an, dass der Virtuelle Schnitt im TIF-Format vorliegt.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat.OlympusWebImage">
+            <summary>Gibt an, dass der Virtuelle Schnitt im Olympus-Web-Format vorliegt.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat.VMIC">
+            <summary>Gibt an, dass der Virtuelle Schnitt im VMIC-Format vorliegt.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat.CZI">
+            <summary>Gibt an, dass der Virtuelle Schnitt im CZI-Format vorliegt.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat.LocalArchive">
+            <summary>Gibt an, dass es sich um ein lokales Archiv handelt.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat.IsiSlide">
+            <summary>Gibt an, dass es sich um einen Virtuellen Schnitt handelt, auf den mit dem Image 
+            Streaming Interface Part I (ISI-1) zugegriffen werden kann.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat.IsiArchive">
+            <summary>Gibt an, dass es sich um ein Archiv handelt, auf das mit dem Image Streaming Interface 
+            Part IIb (ISI-2b) zugegriffen werden kann.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.Presentation">
+            <summary>Repräsentiert die Darstellungs-Einstellungen eines Virtuellen Schnittes.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.Presentation.Rotation">
+            <summary>Ruft einen Wert ab, der angibt, um wieviel Grad der Schnitt rotiert ist, oder legt 
+            diesen fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.Presentation.Flip">
+            <summary>Ruft einen Wert ab, der angibt, wie der Schnitt gespiegelt ist, oder legt diesen fest.
+            </summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.Presentation.Brightness">
+            <summary>Ruft einen Wert ab, der angibt, wie die Helligkeit angepasst ist, oder legt diesen fest.
+            </summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.Presentation.Contrast">
+            <summary>Ruft einen Wert ab, der angibt, wie der Kontrast angepasst ist, oder legt diesen fest.
+            </summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.Presentation.RChannel">
+            <summary>Ruft einen Wert ab, der angibt, wie der Rot-Kanal angepasst ist, oder legt diesen fest.
+            </summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.Presentation.GChannel">
+            <summary>Ruft einen Wert ab, der angibt, wie der Grün-Kanal angepasst ist, oder legt diesen fest.
+            </summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.Presentation.BChannel">
+            <summary>Ruft einen Wert ab, der angibt, wie der Blau-Kanal angepasst ist, oder legt diesen fest.
+            </summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.Presentation.PreferredLabelColor">
+            <summary>Ruft die bevorzugte Farbe für Markierungen ab, oder legt diese fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.Presentation.ColorExplicit">
+            <summary>Ruft einen Wert ab, der angibt, ob die bevorzugte Farbe durch den Nutzer explizit 
+            gesetzt wurde, oder legt diesen fest.</summary>
+        </member>
+        <member name="P:VMscope.InteropCore.VirtualMicroscopy.Presentation.Empty">
+            <summary>Erzeugt eine neue Struktur mit den Default-Werten.</summary>
+        </member>
+        <member name="T:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideStandardLayer">
+            <summary>Listet die Standard-Pyramidenstufen von Virtuellen Schnitten auf.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideStandardLayer.Layer0">
+            <summary>Bezeichnet die Pyramidenstufe mit der Skalierung 1.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideStandardLayer.Layer1">
+            <summary>Bezeichnet die Pyramidenstufe mit der Skalierung 0,5.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideStandardLayer.Layer2">
+            <summary>Bezeichnet die Pyramidenstufe mit der Skalierung 0,25.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideStandardLayer.Layer3">
+            <summary>Bezeichnet die Pyramidenstufe mit der Skalierung 0,125.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideStandardLayer.Layer4">
+            <summary>Bezeichnet die Pyramidenstufe mit der Skalierung 0,0625.</summary>
+        </member>
+        <member name="F:VMscope.InteropCore.VirtualMicroscopy.VirtualSlideStandardLayer.Layer5">
+            <summary>Bezeichnet die Pyramidenstufe mit der Skalierung 0,03125.</summary>
+        </member>
+    </members>
+</doc>

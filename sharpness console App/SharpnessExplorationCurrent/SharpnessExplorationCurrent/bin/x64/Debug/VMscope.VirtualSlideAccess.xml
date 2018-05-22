@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VMscope.VirtualSlideAccess</name>
+    </assembly>
+    <members>
+        <member name="T:VMscope.VirtualSlideAccess.Sdk">
+            <summary>Bietet Zugriff auf die Funktionen des SDKs.</summary>
+        </member>
+        <member name="M:VMscope.VirtualSlideAccess.Sdk.GetArchive(System.String)">
+            <summary>Ruft das Archiv ab, das durch die angegebene Url repräsentiert wird.</summary>
+            <param name="url">Gibt die Url des Archivs an.</param>
+        </member>
+        <member name="M:VMscope.VirtualSlideAccess.Sdk.GetArchive(System.String,VMscope.InteropCore.Security.AuthenticationEventHandler)">
+            <summary>Ruft das Archiv ab, das durch die angegebene Url repräsentiert wird.</summary>
+            <param name="url">Gibt die Url des Archivs an.</param>
+            <param name="authenticate">Methode die zur Authentifizierung aufgerufen wird.</param>
+        </member>
+        <member name="M:VMscope.VirtualSlideAccess.Sdk.GetImage(System.String)">
+            <summary>Ruft das Bild ab, das durch die angegebene Url repräsentiert wird.</summary>
+            <param name="url">Gibt die Url des Bildes an.</param>
+        </member>
+        <member name="M:VMscope.VirtualSlideAccess.Sdk.GetImage(System.String,VMscope.InteropCore.Security.AuthenticationEventHandler)">
+            <summary>Ruft das Bild ab, das durch die angegebene Url repräsentiert wird.</summary>
+            <param name="url">Gibt die Url des Bildes an.</param>
+            <param name="authenticate">Methode die zur Authentifizierung aufgerufen wird.</param>
+        </member>
+        <member name="M:VMscope.VirtualSlideAccess.Sdk.GetSlide(System.String)">
+            <summary>Ruft den Schnitt ab, der durch die angegebene Url repräsentiert wird.</summary>
+            <param name="url">Gibt die Url des Schnittes an.</param>
+        </member>
+        <member name="M:VMscope.VirtualSlideAccess.Sdk.GetSlide(System.String,VMscope.InteropCore.Security.AuthenticationEventHandler)">
+            <summary>Ruft den Schnitt ab, der durch die angegebene Url repräsentiert wird.</summary>
+            <param name="url">Gibt die Url des Schnittes an.</param>
+            <param name="authenticate">Methode die zur Authentifizierung aufgerufen wird.</param>
+        </member>
+        <member name="M:VMscope.VirtualSlideAccess.Sdk.GetSlideFormat(System.String)">
+            <summary>Bestimmt das Format des Schnitts, Falls oder Archivs, das durch die angegebene Url 
+            repräsentiert wird.</summary>
+        </member>
+        <member name="M:VMscope.VirtualSlideAccess.Sdk.GetSupportedFileFormats">
+            <summary>Ruft die Liste der unterstützten Dateiformate ab.</summary>
+            <returns>Ein Array mit den unterstützten Dateierweiterungen. Die Dateierweiterungen sind ohne den 
+            Punkt (.) angegeben.</returns>
+        </member>
+        <member name="M:VMscope.VirtualSlideAccess.Sdk.IsArchive(VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat)">
+            <summary>Überprüft, ob das angegebene Format ein Archiv repräsentiert.</summary>
+        </member>
+        <member name="M:VMscope.VirtualSlideAccess.Sdk.IsSlide(VMscope.InteropCore.VirtualMicroscopy.VirtualSlideFormat)">
+            <summary>Überprüft, ob das angegebene Format einen Virtuellen Schnitt repräsentiert.</summary>
+        </member>
+    </members>
+</doc>

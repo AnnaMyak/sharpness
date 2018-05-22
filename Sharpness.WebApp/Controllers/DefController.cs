@@ -1,4 +1,6 @@
-﻿using Sharpness.WebApp.Models;
+﻿using Sharpness.Persistence;
+using Sharpness.Persistence.Entities;
+using Sharpness.WebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,58 +12,33 @@ using System.Web.Script.Serialization;
 
 namespace Sharpness.WebApp.Controllers
 {
-
-    public class PersonModel
-    {
-
-
-        ///<summary>
-        /// Gets or sets Name.
-        ///</summary>
-        [Key]
-        public string Name { get; set; }
-
-        ///<summary>
-        /// Gets or sets Gender.
-        ///</summary>
-        public string Gender { get; set; }
-
-        ///<summary>
-        /// Gets or sets City.
-        ///</summary>
-        public string City { get; set; }
-    }
-
-
-
+    
     public class DefController : Controller
     {
 
-
-
-        public ActionResult Sample()
+        public ActionResult Index()
         {
-
             return View();
         }
-        public ActionResult Sample2()
-        {
 
-            return View();
-        }
 
         [HttpPost]
-        public ActionResult Index(PersonModel person)
+       public ActionResult CreateStain(Stain s)
         {
-          
-            string name = person.Name;
-            string gender = person.Gender;
-            string city = person.City;
-
-            return RedirectToAction("Sample");
+            var _context = new DataContext();
+            _context.Stains.Add(s);
+            _context.SaveChanges();
+            string message = "SUCCESS"; 
+            
+            return Json(new { Message = message, JsonRequestBehavior.AllowGet });
         }
 
-       
+        public JsonResult GetStains(string Name)
+        {
+            var _context = new DataContext();
+            var stains = _context.Stains.ToList();
+            return Json(stains, JsonRequestBehavior.AllowGet);
+        }
     }
 
         

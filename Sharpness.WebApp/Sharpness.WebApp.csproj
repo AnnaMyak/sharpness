@@ -506,10 +506,16 @@
     <Content Include="assets\scss\bootstrap\utilities\_spacing.scss" />
     <Content Include="assets\scss\bootstrap\utilities\_text.scss" />
     <Content Include="assets\scss\bootstrap\utilities\_visibility.scss" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -597,14 +603,13 @@
     <Content Include="Views\ControlPanel\Index.cshtml" />
     <Content Include="Views\AdminDashboard\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutPage.cshtml" />
-    <Content Include="Views\Def\Sample.cshtml" />
     <Content Include="Views\Reglament\Index.cshtml" />
     <Content Include="Views\AdminDashboard\WSIs.cshtml" />
     <Content Include="Views\AdminDashboard\Users.cshtml" />
-    <Content Include="Views\Def\Sample2.cshtml" />
     <Content Include="Views\ControlPanel\Report.cshtml" />
     <Content Include="Views\Dashboard\AllMyTests.cshtml" />
     <Content Include="Views\AdminDashboard\Reglaments.cshtml" />
+    <Content Include="Views\Def\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -616,7 +621,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sharpness.Persistence\Sharpness.Persistence.csproj">

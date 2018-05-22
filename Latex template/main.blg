@@ -1,0 +1,13 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
+I couldn't open style file bst/IEEEtran.bst.bst
+---line 36 of file main.aux
+ : \bibstyle{bst/IEEEtran.bst
+ :                           }
+I'm skipping whatever remains of this command
+I couldn't open database file bib/IEEEreferencias.bib.bib
+---line 37 of file main.aux
+ : \bibdata{bib/IEEEabrv,bib/IEEEreferencias.bib
+ :                                              }
+I'm skipping whatever remains of this command
+I found no style file---while reading file main.aux
+(There were 3 error messages)
