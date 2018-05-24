@@ -12,8 +12,6 @@ namespace IdentitySample.Controllers
         public ActionResult Index()
         {
             var s= new InitDataContext();
-            //ISharpnessManager manager = new SharpnessManager();
-            //manager.GenerateSharpnessReport();
             return View();
         }
 

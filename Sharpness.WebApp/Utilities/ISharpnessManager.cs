@@ -11,11 +11,10 @@ namespace Sharpness.WebApp.Utilities
     {
         Reglament GetReglament(string Stain, string Organ, string Tissue);
 
-        void GenerateSharpnessReport(string Stain, string Organ, string Tissue, Guid WSIId);
-
-        int[] GetSemaphoreValues(byte[] SharpnessMap);
-        int[] GetChannelsValues(byte[] SharpnessMap);
         
+        double[] GetSemaphoreValues(string path);
+        double[] GetChannelsValues(string path);
+
 
     }
 }

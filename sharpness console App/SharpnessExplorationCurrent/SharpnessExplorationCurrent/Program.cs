@@ -42,11 +42,11 @@ namespace SharpnessExplorationCurrent
 
             StringBuilder csv = new StringBuilder();
             csv.AppendLine("Wsi Url\t" + slidePath);
-            csv.AppendLine("Ergebnis Dateien Prefix\t" + outpathPrefix);
-            csv.AppendLine("Schärfeschwellwert\t" + threshold.ToString());
-            csv.AppendLine("Kachelgröße\t" + tileSize.ToString());
-            csv.AppendLine("Skalierung\t" + scale.ToString());
-            csv.AppendLine("Anzahl Threads\t" + numThreads.ToString());
+            csv.AppendLine("Results Data Prefix\t" + outpathPrefix);
+            csv.AppendLine("Sharpness Threshold Value\t" + threshold.ToString());
+            csv.AppendLine("Tile Size\t" + tileSize.ToString());
+            csv.AppendLine("Scaling\t" + scale.ToString());
+            csv.AppendLine("Number of Threads\t" + numThreads.ToString());
             csv.AppendLine("Version SharpAcessoryExtension\t" + "1.0.5357.26298"); //from properties...
             File.WriteAllText(param_outpath, csv.ToString());
         }

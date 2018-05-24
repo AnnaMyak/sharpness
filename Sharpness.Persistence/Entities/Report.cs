@@ -37,11 +37,18 @@ namespace Sharpness.Persistence.Entities
                 
         //First Sharpness Map
         //in %
-        public int Semaphore_Green { get; set; }
-        public int Semaphore_Yellow { get; set; }
-        public int Semaphore_Red { get; set; }
+        public double Semaphore_Green { get; set; }
+        public double Semaphore_Yellow { get; set; }
+        public double Semaphore_Red { get; set; }
 
 
+
+        //Second Sharpness Map
+        //Debug Map
+        //in %
+        public double Red_Channel { get; set; }
+        public double Blue_Channel { get; set; }
+       
 
         public string ReportLink { get; set; }
         public string SharpnessMapPath { get; set; }

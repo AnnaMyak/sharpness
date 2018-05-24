@@ -63,7 +63,7 @@ namespace Sharpness.WebApp.Controllers
             byte[] arr;
             using (MemoryStream ms = new MemoryStream())
             {
-                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
                 arr = ms.ToArray();
             }
             var base64 = Convert.ToBase64String(arr);
@@ -81,7 +81,7 @@ namespace Sharpness.WebApp.Controllers
             //TODO
             //Today only one value possible
             //var tissue = _repoTissues.GetTissueByName("Tissue");
-
+            ISharpnessManager manager = new SharpnessManager(); 
             //
             var root = @"C:\Users\AnnaToshiba2\Desktop\WSI\Sharpness_WebApp_Uploads\";
             var fileName = "";
@@ -112,21 +112,31 @@ namespace Sharpness.WebApp.Controllers
             first.StartInfo.FileName = @"C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Release\SharpnessExplorationCurrent.exe";
             first.StartInfo.Arguments = String.Format(@"""{0}""", wsi.Path);
             first.Start();
-
             first.WaitForExit();
 
             var report = new Report();
             report.ReglamentId = _repoReglaments.GetReglamentByTitel("Default").ReglamentId;
             report.Comment = "some words";
-            report.Evaluation = true;
+            
             report.OrganName = organ.Name;
             report.TissueName = tissue.Name;
             report.WSIId = wsi.WSIId;
             report.StainName = stain.Name;
-            report.Semaphore_Green = 90;
-            report.Semaphore_Red = 1;
-            report.Semaphore_Yellow = 9;
-            report.SharpnessMapPath = outputDir+ Path.GetFileNameWithoutExtension(fileName)+".jpeg";
+            report.SharpnessMapPath = outputDir + Path.GetFileNameWithoutExtension(fileName) + ".png";
+            var semaphoreValues = manager.GetSemaphoreValues(report.SharpnessMapPath);
+
+
+
+            report.Semaphore_Red = (int)semaphoreValues[0];
+            report.Semaphore_Green = (int)semaphoreValues[1];
+            report.Semaphore_Yellow = (int)semaphoreValues[2];
+            if (semaphoreValues[1] > 70)
+            {
+                report.Evaluation = true;
+            }
+            else {
+                report.Evaluation = false;
+            }
             report.ReportLink = reportLink;
             report.UserId = User.Identity.GetUserId();
             _repoReports.Insert(report);
