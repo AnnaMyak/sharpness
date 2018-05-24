@@ -55,7 +55,6 @@ C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\Sharpness
 C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Release\SharpnessExplorationCurrent.pdb
 C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Release\#Accessory.CognitionMaster.WholeSlideImageSupport.dll
 C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Release\#AccessoryExtension.dll
-C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Release\SharpnessExplorationCurrent.csprojResolveAssemblyReference.cache
 C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Release\SharpnessExplorationCurrent.exe.config
 C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Release\SharpnessExplorationCurrent.csproj.CoreCompileInputs.cache
 C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\obj\x64\Release\SharpnessExplorationCurrent.exe

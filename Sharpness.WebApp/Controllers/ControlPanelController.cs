@@ -52,6 +52,7 @@ namespace Sharpness.WebApp.Controllers
             ViewBag.Stain = _repoStains.GetStainByName(report.StainName).Name;
             ViewBag.Tissue = _repoTissues.GetTissueByName(report.TissueName).Name;
             ViewBag.Organ = _repoOrgans.GetOrganByName(report.OrganName).Name;
+            ViewBag.Evaluation = report.Evaluation;
             ViewBag.G = report.Semaphore_Green;
             ViewBag.Y = report.Semaphore_Yellow;
             ViewBag.R = report.Semaphore_Red;
@@ -66,9 +67,24 @@ namespace Sharpness.WebApp.Controllers
                 img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
                 arr = ms.ToArray();
             }
+
+
+
             var base64 = Convert.ToBase64String(arr);
             ViewBag.Img = String.Format("data:image/png;base64,{0}", base64);
 
+            var ImgPathDebug = report.SharpnessMapPathDebug;
+            Image imgDebug = Image.FromFile(ImgPathDebug);
+            byte[] arrDebug;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                imgDebug.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                arrDebug = ms.ToArray();
+            }
+            var base64Debug = Convert.ToBase64String(arrDebug);
+            ViewBag.Debug = String.Format("data:image/png;base64,{0}", base64Debug);
+            ViewBag.DebugRed = report.Red_Channel;
+            ViewBag.DebugBlue = report.Blue_Channel;
 
             return View();
         }
@@ -103,9 +119,6 @@ namespace Sharpness.WebApp.Controllers
                 
             }
 
-            //only Default-rules possible 
-            //var reglament = manager.GetReglament(stain.Name,organ.Name,tissue.Name);
-            // var report = manager.GenerateSharpnessReport(stain.Name, organ.Name,tissue.Name); 
             var reportLink = User.Identity.GetUserName() + "/" + "WSI " + wsi.Titel + "/" + fileName+" ";
             var evaluationLink = root + reportLink.Replace("/", @"\");
             Process first = new Process();
@@ -123,13 +136,18 @@ namespace Sharpness.WebApp.Controllers
             report.WSIId = wsi.WSIId;
             report.StainName = stain.Name;
             report.SharpnessMapPath = outputDir + Path.GetFileNameWithoutExtension(fileName) + ".png";
+            report.SharpnessMapPathDebug= outputDir + Path.GetFileNameWithoutExtension(fileName) + "Debug.png";
             var semaphoreValues = manager.GetSemaphoreValues(report.SharpnessMapPath);
+            var channelsValues = manager.GetChannelsValues(report.SharpnessMapPathDebug);
 
 
+            report.Semaphore_Red = semaphoreValues[0];
+            report.Semaphore_Green = semaphoreValues[1];
+            report.Semaphore_Yellow = semaphoreValues[2];
 
-            report.Semaphore_Red = (int)semaphoreValues[0];
-            report.Semaphore_Green = (int)semaphoreValues[1];
-            report.Semaphore_Yellow = (int)semaphoreValues[2];
+            report.Red_Channel = channelsValues[0];
+            report.Blue_Channel = channelsValues[1];
+
             if (semaphoreValues[1] > 70)
             {
                 report.Evaluation = true;

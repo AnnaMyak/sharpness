@@ -29,7 +29,15 @@
                                     </tr>
                                     <tr>
                                         <th scope="col">Tissue: @ViewBag.Tissue</th>
+                                        
+                                        @if (ViewBag.Evaluation == true)
+                                        {
                                         <th scope="col">Test: positive</th>
+                                        }
+                                        @if (ViewBag.Evaluation == false)
+                                        {
+                                            <th scope="col">Test: negative</th>
+                                        }
 
                                     </tr>
                                     <tr>
@@ -42,15 +50,22 @@
                                         
                                     </tr>
                                     <tr>
-                                        <th scope="col"><span class="badge badge-danger">R: @ViewBag.R%</span></th>
+                                        <th scope="col">Blured Area in %</th>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="col"><span class="badge badge-danger">R: @ViewBag.R %</span></th>
                                         
                                     </tr>
                                     <tr>
-                                        <th scope="col"><span class="badge badge-warning">Y: @ViewBag.Y%</span></th>
+                                        <th scope="col"><span class="badge badge-warning">Y: @ViewBag.Y %</span></th>
                                         
                                     </tr>
                                     <tr>
-                                        <th scope="col"><span class="badge badge-success">G: @ViewBag.G%</span></th>
+                                        <th scope="col">Sharp Area in %</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col"><span class="badge badge-success">G: @ViewBag.G %</span></th>
                                     </tr>
 
                                 </thead>
@@ -59,15 +74,24 @@
                                 </tbody>
                             </table>
                             <img style="width:200%; height:auto" src="@ViewBag.Img" />
+                            <table>
+                                <tbody>
+                                    <tr><th scope="col">Debug Info</th></tr>
+                                    <br />
+                                    <tr><th scope="col">Red Channel @ViewBag.DebugRed %</th></tr>
+                                    <br />
+                                    <tr><th scope="col">Blue Channel @ViewBag.DebugBlue %</th></tr>
+                                </tbody>
+                            </table>
+                            <br />
+                            <img style="width:200%; height:auto" src="@ViewBag.Debug" />
                         </div>
                         <button type="button" class="btn btn-danger">Pdf</button>
                     </div>
                 </div>
 
                 <iframe style="width:59%; height:760px" src="@ViewBag.ViewerLink"></iframe>
-
-
-            </div>
+ </div>
         </div>
     </div>
 

@@ -11,45 +11,42 @@ namespace DrawApp
     {
         static void Main(string[] args)
         {
-            Bitmap bitmap = new Bitmap(@"C:\Users\AnnaToshiba2\Desktop\WSI\meta_old\sharpness\data1.png");
+            Bitmap bitmap = new Bitmap(@"C:\Users\AnnaToshiba2\Desktop\WSI\Sharpness_WebApp_Uploads\admin@example.com\WSI Test\CMU-1Debug.png");
 
+
+
+           // Bitmap bitmap = new Bitmap(path);
+            //Red results[0], Blue results[1]
+            var results = new double[2];
             int red_absolute = 0;
-            int green_absolute = 0;
-            int yellow_absolute = 0;
-            int alpha_absolute = 0;
+            int blue_absolute = 0;
+
             double sum = 0;
             double procent = 0.0;
             double red = 0.0;
-            double green = 0.0;
-            double yellow = 0.0;
-            for(int x=1; x<bitmap.Width;x++)
+            double blue = 0.0;
+            for (int x = 1; x < bitmap.Width; x++)
             {
-                for (int y=1; y<bitmap.Height; y++)
+                for (int y = 1; y < bitmap.Height; y++)
                 {
-                    if (bitmap.GetPixel(x, y).R == 255 && bitmap.GetPixel(x, y).G==0&& bitmap.GetPixel(x, y).B==0)
+                    if (bitmap.GetPixel(x, y).R == 255)
                         red_absolute++;
-                    if (bitmap.GetPixel(x, y).G ==128&& bitmap.GetPixel(x, y).R == 0 && bitmap.GetPixel(x, y).B == 0)
-                        green_absolute++;
-                    if (bitmap.GetPixel(x, y).R==255&& bitmap.GetPixel(x, y).G == 165)
-                        yellow_absolute++;
-                    if (bitmap.GetPixel(x, y).A== 0)
-                        alpha_absolute++;
+                    if (bitmap.GetPixel(x, y).R < 170 && bitmap.GetPixel(x, y).B < 150)
+                        blue_absolute++;
+
                 }
             }
-            sum = red_absolute + green_absolute + yellow_absolute;
+            sum = red_absolute + blue_absolute;
             procent = sum / 100;
-            Console.WriteLine("Red:"+ red_absolute);
-            Console.WriteLine("Green:" + green_absolute);
-            Console.WriteLine("Yellow:" + yellow_absolute);
-            Console.WriteLine("Sum: " + sum);
-            Console.WriteLine("Procent: " + procent);
             //Map 
-            red = red_absolute / procent*100;
-            green = green_absolute / procent;
-            yellow = yellow_absolute / procent;
-            Console.WriteLine("Map Red: " +red);
-            Console.WriteLine("Map Green: " + green);
-            Console.WriteLine("Map Yellow: " + yellow);
+            red = red_absolute / procent;
+            blue = blue_absolute / procent;
+
+            results[0] = red;
+            results[1] = blue;
+
+            Console.WriteLine("Red "+red);
+            Console.WriteLine("Blue " + blue);
             while (true) { }
 
 

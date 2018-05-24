@@ -52,7 +52,7 @@ namespace Sharpness.Persistence.Entities
 
         public string ReportLink { get; set; }
         public string SharpnessMapPath { get; set; }
-        
+        public string SharpnessMapPathDebug { get; set; }
 
 
         public bool Evaluation { get; set; }
