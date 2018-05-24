@@ -56,9 +56,8 @@ namespace Sharpness.WebApp.Controllers
             ViewBag.G = report.Semaphore_Green;
             ViewBag.Y = report.Semaphore_Yellow;
             ViewBag.R = report.Semaphore_Red;
-            //ViewBag.Map = report.SharpnessMapPath;
-            // Load Sharpness Map
-            //var ImgPath= String.Format(@"""{0}""", report.SharpnessMapPath);
+
+
             var ImgPath =report.SharpnessMapPath;
             Image img = Image.FromFile(ImgPath);
             byte[] arr;

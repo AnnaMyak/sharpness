@@ -22,16 +22,6 @@ namespace Sharpness.WebApp.Controllers
         public ActionResult Index()
         {
             
-            Image img = Image.FromFile(@"C:\Users\AnnaToshiba2\Desktop\WSI\Sharpness_WebApp_Uploads\myakinen@gmail.com\WSI AAA\CMU-1.png");
-            byte[] arr;
-            using (MemoryStream ms = new MemoryStream())
-            {
-                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                arr = ms.ToArray();
-            }
-            var base64 = Convert.ToBase64String(arr);
-            ViewBag.Img= String.Format("data:image/png;base64,{0}", base64);
-        
 
             return View();
         }

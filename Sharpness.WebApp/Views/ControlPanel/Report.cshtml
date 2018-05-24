@@ -13,13 +13,13 @@
             <div class="card-body">
                 
                 
-
-                <div class="col-lg-6" style="width:41%">
+                
+                <div class="col-lg-6" style="width:41%" >
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Details</strong>
+                            <strong class="card-title"> Report Details</strong>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" id="content" >
                             <img style="width:200%; height:auto" src="@ViewBag.Img" />
                             <table class="table">
                                 <thead>
@@ -32,18 +32,18 @@
 
                                     </tr>
                                     <tr>
-                                        <th scope="col"><span class="badge badge-danger">R: @ViewBag.R %</span></th>
+                                        <th scope="col"><span class="badge badge-danger">Red: @ViewBag.R %</span></th>
 
                                     </tr>
                                     <tr>
-                                        <th scope="col"><span class="badge badge-warning">Y: @ViewBag.Y %</span></th>
+                                        <th scope="col"><span class="badge badge-warning">Yellow: @ViewBag.Y %</span></th>
 
                                     </tr>
                                     <tr>
                                         <th scope="col">Sharp Area in %</span></th>
                                     </tr>
                                     <tr>
-                                        <th scope="col"><span class="badge badge-success">G: @ViewBag.G %</span></th>
+                                        <th scope="col"><span class="badge badge-success">Green: @ViewBag.G %</span></th>
                                     </tr>
                                     
                                     <tr>
@@ -88,8 +88,13 @@
                             </table>
                             <br />
                             <img style="width:200%; height:auto" src="@ViewBag.Debug" />
+                        
+
+
                         </div>
-                        <button type="button" class="btn btn-danger">Pdf</button>
+                        <div id="editor"></div>
+
+                        <button type="button" class="btn btn-danger" id="PDF">Pdf</button>
                     </div>
                 </div>
 
@@ -100,3 +105,50 @@
 
 </div>
 
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.js"></script>
+<script>
+    //var sharpnessMap = new Image();
+        
+    //sharpnessMap.src = "";
+    var doc = new jsPDF();
+
+
+    //doc.addImage(sharpnessMap, 'PNG', 45, 45, 150, 150);
+    //var sharpnessMap = '@ViewBag.Img';
+    doc.setFontSize(28)
+    doc.text(20, 20, 'Sharpness Contriol Platform');
+    doc.setFontSize(14)
+    doc.text(20, 40, 'Stain: ' + '@ViewBag.Stain');
+    doc.text(20, 60, 'Organ: ' + '@ViewBag.Organ');
+    doc.text(20, 80, 'Tissue: ' + '@ViewBag.Tissue');
+    //var evaluation = "";
+    
+    doc.text(20, 120, 'Sharpness Map Values:');
+    doc.text(20, 140, 'Blured Area: ');
+    doc.text(20, 160, 'Red: ' + '@ViewBag.R' + ' %');
+    doc.text(20, 180, 'Yellow: ' + '@ViewBag.Y' + ' %');
+    doc.text(20, 200, 'Sharp Area:');
+    doc.text(20, 220, 'Green: ' + '@ViewBag.G' + ' %');
+    doc.text(20, 240, 'Debug Info');
+    doc.text(20, 260, 'Red channel: ' + '@ViewBag.DebugRed'+' %');
+    doc.text(20, 280, 'Blue channel: ' + '@ViewBag.DebugBlue' + ' %');
+    //doc.addImage(sharpnessMap, 'PNG', 20, 200, 150, 150);
+    
+       //doc.text
+    var specialElementHandlers = {
+        '#editor': function (element, renderer) {
+            return true;
+        }
+    };
+
+
+    $('#PDF').click(function () {
+       // doc.fromHTML($('#content').html(), 15, 15, {
+       //     'width': 200,
+       //     'elementHandlers': specialElementHandlers
+        // });
+
+        doc.save('report_scp.pdf');
+    });
+</script>
