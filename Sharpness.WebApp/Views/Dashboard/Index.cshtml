@@ -4,10 +4,45 @@
 
 }
 
+<div class="col-md-6 col-lg-3">
+    <div class="card bg-flat-color-1 text-light">
+        <div class="card-body">
+            <div class="h4 m-0">My tests total</div>
+            <div>@ViewBag.TestTotal</div>
+         </div>
+    </div>
+</div><!--/.col-->
+<div class="col-md-6 col-lg-3">
+    <div class="card bg-flat-color-1 text-light">
+        <div class="card-body">
+            <div class="h4 m-0">My tests this week</div>
+            <div>@ViewBag.TestTotalThisWeek</div>
+         </div>
+    </div>
+</div><!--/.col-->
+<div class="col-md-6 col-lg-3">
+    <div class="card bg-flat-color-1 text-light">
+        <div class="card-body">
+            <div class="h4 m-0">My tests this month</div>
+            <div>@ViewBag.TestTotalThisMonth</div>
+         </div>
+    </div>
+</div><!--/.col-->
+<div class="col-md-6 col-lg-3">
+    <div class="card bg-flat-color-1 text-light">
+        <div class="card-body">
+            <div class="h4 m-0">My test this year</div>
+            <div>@ViewBag.TestTotalThisYear</div>
+          </div>
+    </div>
+</div><!--/.col-->
+
+
+
 <div class="col-lg-6">
     <div class="card">
         <div class="card-header">
-            <strong class="card-title">My Recents test</strong>
+            <strong class="card-title">My recente tests</strong>
             
         </div>
         <div class="card-body">
@@ -23,7 +58,7 @@
                 </thead>
                 <tbody>
                     @{ int i = 1;
-                            foreach (var item in Model.WSIs)
+                            foreach (var item in Model.RecentWSIs)
                             {
                     <tr>
                         <th scope="row">@i</th>
@@ -47,3 +82,20 @@
         </div>
     </div>
 </div>
+
+<div class="col-md-6 col-lg-3">
+    <div class="card bg-flat-color-3 text-light">
+        <div class="card-body">
+            <div class="h4 m-0">Positive tests</div>
+            <div>@ViewBag.PositiveTests</div>
+        </div>
+    </div>
+</div><!--/.col-->
+<div class="col-md-6 col-lg-3">
+    <div class="card bg-flat-color-4 text-light">
+        <div class="card-body">
+            <div class="h4 m-0">Negative tests</div>
+            <div>@ViewBag.NegativeTests</div>
+         </div>
+    </div>
+</div><!--/.col-->

@@ -20,8 +20,32 @@
                             <strong class="card-title">Details</strong>
                         </div>
                         <div class="card-body">
+                            <img style="width:200%; height:auto" src="@ViewBag.Img" />
                             <table class="table">
                                 <thead>
+                                    <tr>
+                                        <th scope="col">Sharpness Map Legend</th>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">Blured Area in %</th>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="col"><span class="badge badge-danger">R: @ViewBag.R %</span></th>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="col"><span class="badge badge-warning">Y: @ViewBag.Y %</span></th>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">Sharp Area in %</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col"><span class="badge badge-success">G: @ViewBag.G %</span></th>
+                                    </tr>
+                                    
                                     <tr>
                                         <th scope="col">Stain: @ViewBag.Stain</th>
                                         <th scope="col">Organ: @ViewBag.Organ</th>
@@ -45,35 +69,14 @@
                                         <th scope="col">recomendations...</th>
 
                                     </tr>
-                                    <tr>
-                                        <th scope="col">Sharpness Map Legend</th>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">Blured Area in %</th>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="col"><span class="badge badge-danger">R: @ViewBag.R %</span></th>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <th scope="col"><span class="badge badge-warning">Y: @ViewBag.Y %</span></th>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">Sharp Area in %</span></th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col"><span class="badge badge-success">G: @ViewBag.G %</span></th>
-                                    </tr>
+                                    
 
                                 </thead>
                                 <tbody>
                                     
                                 </tbody>
                             </table>
-                            <img style="width:200%; height:auto" src="@ViewBag.Img" />
+                            
                             <table>
                                 <tbody>
                                     <tr><th scope="col">Debug Info</th></tr>

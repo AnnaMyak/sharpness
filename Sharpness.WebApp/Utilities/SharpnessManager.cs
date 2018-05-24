@@ -96,7 +96,7 @@ namespace Sharpness.WebApp.Utilities
             sum = red_absolute + green_absolute + yellow_absolute;
             procent = sum / 100;
             //Map 
-            red = red_absolute / procent * 100;
+            red = red_absolute / procent;
             green = green_absolute / procent;
             yellow = yellow_absolute / procent;
             results[0] = red;

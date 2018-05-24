@@ -125,7 +125,7 @@ namespace Sharpness.Persistence.Repositories
         public IEnumerable<Report> GetAllReportsByUserId(string UserId)
         {
             var _context = new DataContext();
-            return _context.Reports.Where(r => r.UserId==UserId).ToList();
+            return _context.Reports.Where(r => r.UserId==UserId).OrderBy(r => r.Creation).ToList();
         }
 
         public IEnumerable<Report> GetAllReportsByUserIdLastWeek(string UserId)
@@ -301,7 +301,8 @@ namespace Sharpness.Persistence.Repositories
         public int GetTotalNumberOfTestsForLastMonthByUserId(string UserId)
         {
             var _context = new DataContext();
-            return _context.Reports.Where(r => r.Creation > DateTime.Now.AddMonths(-1) && r.UserId==UserId).ToList().Count;
+            DateTime period = DateTime.Now.AddMonths(-1);
+            return _context.Reports.Where(r => r.Creation > period && r.UserId==UserId).ToList().Count;
         }
 
         public int GetTotalNumberOfTestsForLastWeek()
@@ -313,7 +314,8 @@ namespace Sharpness.Persistence.Repositories
         public int GetTotalNumberOfTestsForLastWeekByUserId(string UserId)
         {
             var _context = new DataContext();
-            return _context.Reports.Where(r => r.Creation > DateTime.Now.AddDays(-7) && r.UserId==UserId).ToList().Count;
+            DateTime period = DateTime.Now.AddDays(-7);
+            return _context.Reports.Where(r => r.Creation > period && r.UserId==UserId).ToList().Count;
         }
 
         public int GetTotalNumberOfTestsForLastYear()
@@ -325,7 +327,8 @@ namespace Sharpness.Persistence.Repositories
         public int GetTotalNumberOfTestsForLastYearByUserId(string UserId)
         {
             var _context = new DataContext();
-            return _context.Reports.Where(r => r.Creation > DateTime.Now.AddYears(-1) && r.UserId==UserId).ToList().Count;
+            DateTime period = DateTime.Now.AddYears(-1);
+            return _context.Reports.Where(r => r.Creation > period && r.UserId==UserId).ToList().Count;
         }
 
         public void Insert(Report Report)
