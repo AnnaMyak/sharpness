@@ -610,8 +610,8 @@
     <Content Include="Views\AdminDashboard\Users.cshtml" />
     <Content Include="Views\ControlPanel\Report.cshtml" />
     <Content Include="Views\Dashboard\AllMyTests.cshtml" />
-    <Content Include="Views\AdminDashboard\Reglaments.cshtml" />
     <Content Include="Views\Def\Index.cshtml" />
+    <Content Include="Views\AdminDashboard\Reglaments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

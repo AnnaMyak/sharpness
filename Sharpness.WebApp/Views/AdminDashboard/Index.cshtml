@@ -74,15 +74,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <div class="card">
-                                            <img class="card-img-top" src="~/assets/img/default2.jpg" alt="Card image cap">
-                                            <div class="card-body">
-                                                <h4 class="card-title mb-3">Reports</h4>
-                                            </div>
-                                            <button type="button" class="btn btn-primary btn-sm">More-></button>
-                                        </div>
-                                    </div>
+                                    
 
                                     <div class="col-md-4">
                                         <div class="card">
@@ -91,6 +83,43 @@
                                                 <h4 class="card-title mb-3">WSIs</h4>
                                             </div>
                                             <button type="button" class="btn btn-primary btn-sm" onclick="location.href='@Url.Action("WSIs", "AdminDashboard")'">More-></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <strong class="card-title">Tissues</strong>
+                                            </div>
+                                            <div class="card-body">
+                                                <table class="table table-bordered table-dark">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Tissue</th>
+                                                            
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>@{
+                                                        int t = 1;
+                                                        foreach (var item in Model.Tissues)
+                                                        {
+                                                            <tr>
+                                                                <th scope="row">@t</th>
+                                                                <td>@item.Name</td>
+
+                                                            </tr>
+                                                            t++;
+                                                        }
+                                                        }
+
+                                                    </tbody>
+                                                </table>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="text-input" name="text-input" placeholder="...add a new tissue" class="form-control">
+                                                    <button type="button" class="btn btn-success btn-sm">Add</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 

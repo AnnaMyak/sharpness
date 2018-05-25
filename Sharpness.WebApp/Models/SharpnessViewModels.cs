@@ -27,6 +27,7 @@ namespace Sharpness.WebApp.Models
         public Organ Organ { get; set; }
         public Tissue Tissue { get; set; }
         public Report Report { get; set; }
+        public Reglament Reglament { get; set; }
         
         
     }

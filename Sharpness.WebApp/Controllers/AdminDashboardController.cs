@@ -1,4 +1,5 @@
-﻿using Sharpness.Persistence.Repositories;
+﻿using Sharpness.Persistence.Entities;
+using Sharpness.Persistence.Repositories;
 using Sharpness.WebApp.Models;
 using Sharpness.WebApp.Repository;
 using System;
@@ -44,6 +45,11 @@ namespace Sharpness.WebApp.Controllers
             model.WSIs = _repoWSI.GetWSIs();
             model.Users = _repoUsers.GetAllUsers();
             model.Reports = _repoReports.GetAllReports();
+
+            foreach (var item in model.WSIs)
+            {
+                item.UserId = _repoUsers.GetUserById(item.UserId).Email;
+            }
            
 
             return View(model);
@@ -65,13 +71,37 @@ namespace Sharpness.WebApp.Controllers
             return RedirectToAction("Report", "ControlPanel", new { ReportId = report.ReportId });
         }
 
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Reglaments()
         {
             SharpnessViewModels model = new SharpnessViewModels();
             model.Reglaments = _repoReglaments.GetAllReglaments();
 
             return View(model);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public ActionResult AddReglament(Reglament reglament)
+        {
+          
+                
+                _repoReglaments.Insert(new Reglament {
+                    Titel =reglament.Titel,
+                    SharpnessThresholdValue =reglament.SharpnessThresholdValue,
+                    Scaling=reglament.Scaling,
+                    Edges=reglament.Edges,
+                    TileSize=reglament.TileSize,
+                    AcceptanceValue=reglament.AcceptanceValue});
+            
+            return RedirectToAction("Reglaments");
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult DeleteReglament(string Titel)
+        {
+            _repoReglaments.Delete(_repoReglaments.GetReglamentByTitel(Titel));
+            return RedirectToAction("Reglaments");
         }
 
 

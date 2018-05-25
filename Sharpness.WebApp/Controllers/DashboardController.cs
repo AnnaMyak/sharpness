@@ -12,14 +12,7 @@ using System.Web.Mvc;
 
 namespace Sharpness.WebApp.Controllers
 {
-    public class Test
-    {
-        public string Titel { get; set; }
-        public string Description  { get; set; }
-        public Guid ReportId { get; set; }
-        public DateTime Creation { get; set; }
-
-    }
+    
     public class DashboardController : Controller
     {
         //private IW _userRepo= new UserRepository();

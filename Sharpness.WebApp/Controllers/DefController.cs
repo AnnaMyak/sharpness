@@ -27,23 +27,7 @@ namespace Sharpness.WebApp.Controllers
         }
 
 
-        [HttpPost]
-       public ActionResult CreateStain(Stain s)
-        {
-            var _context = new DataContext();
-            _context.Stains.Add(s);
-            _context.SaveChanges();
-            string message = "SUCCESS"; 
-            
-            return Json(new { Message = message, JsonRequestBehavior.AllowGet });
-        }
-
-        public JsonResult GetStains(string Name)
-        {
-            var _context = new DataContext();
-            var stains = _context.Stains.ToList();
-            return Json(stains, JsonRequestBehavior.AllowGet);
-        }
+       
     }
 
         

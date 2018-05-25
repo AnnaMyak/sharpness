@@ -94,7 +94,7 @@ namespace Sharpness.Persistence.Repositories
         public IEnumerable<WSI> GetWSIs()
         {
             var _context = new DataContext();
-            return _context.WSIs.ToList();
+            return _context.WSIs.OrderByDescending(w=>w.Creation).ToList();
         }
 
         public void Insert(WSI w)
