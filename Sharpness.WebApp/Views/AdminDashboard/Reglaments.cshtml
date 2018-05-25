@@ -137,8 +137,9 @@
                         </li>
 
                     </ul>
-                    <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("DeleteReglament",new )?Titel=@item.Titel)'">Delete</button>
-                    @Html.ActionLink("Delete", "DeleteReglament", "AdminDashboard", new { ReglamentId = @item.ReglamentId }, null)
+                    
+                    <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("DeleteReglament")?ReglamentId=@item.ReglamentId)'">Delete</button>
+                    
 
                 </section>
             </aside>
