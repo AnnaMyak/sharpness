@@ -25,8 +25,11 @@ namespace SharpnessExplorationCurrent
 
             // result paths and infos
             System.Drawing.Imaging.ImageFormat sharpnessformat = System.Drawing.Imaging.ImageFormat.Png;
+            //Debug Sharpness Map
             string debug_outpath = outpathPrefix + "Debug.png";
+            //Sharpness Map by Semaphore System
             string result_outpath = outpathPrefix + ".png";
+            //Report with technical details
             string param_outpath = outpathPrefix + ".parameters.csv";
 
             if (!Directory.Exists(outputDir))

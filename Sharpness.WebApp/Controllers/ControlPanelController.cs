@@ -100,9 +100,9 @@ namespace Sharpness.WebApp.Controllers
             //
             var root = @"C:\Users\AnnaToshiba2\Desktop\WSI\Sharpness_WebApp_Uploads\";
             var fileName = "";
-            
-            
-            string outputDir = Path.Combine(Path.GetDirectoryName(root), User.Identity.GetUserName(),"WSI "+wsi.Titel+@"\");
+            wsi.WSIId = Guid.NewGuid();
+
+            string outputDir = Path.Combine(Path.GetDirectoryName(root), User.Identity.GetUserId(), "WSI "+wsi.WSIId+@"\");
             if (!Directory.Exists(outputDir))
                 Directory.CreateDirectory(outputDir);
             if (file.ContentLength > 0)
@@ -111,14 +111,14 @@ namespace Sharpness.WebApp.Controllers
                 var path = Path.Combine(outputDir, fileName);
                 file.SaveAs(path);
 
-                wsi.WSIId = Guid.NewGuid();
+                
                 wsi.Path = path;
                 wsi.UserId = User.Identity.GetUserId();
                 _repoWSIs.Insert(wsi);
                 
             }
 
-            var reportLink = User.Identity.GetUserName() + "/" + "WSI " + wsi.Titel + "/" + fileName+" ";
+            var reportLink = User.Identity.GetUserId() + "/" + "WSI " + wsi.WSIId + "/" + fileName+" ";
             var evaluationLink = root + reportLink.Replace("/", @"\");
             Process first = new Process();
             first.StartInfo.FileName = @"C:\Users\AnnaToshiba2\Documents\GitHub\sharpness\sharpness console App\SharpnessExplorationCurrent\SharpnessExplorationCurrent\bin\x64\Release\SharpnessExplorationCurrent.exe";
