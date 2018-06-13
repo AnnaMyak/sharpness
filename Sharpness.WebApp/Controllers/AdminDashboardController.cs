@@ -31,9 +31,13 @@ namespace Sharpness.WebApp.Controllers
             model.Organs = _repoOrgans.GetOrgans();
             model.Tissues = _repoTissues.GetTissues();
             model.Reports = _repoReports.GetAllReports();
+            //löschen
             model.Users = _repoUsers.GetAllUsers();
-           
 
+            //get all admins
+            var _appContext = new IdentitySample.Models.ApplicationDbContext();
+            
+            
             //model.WSIs = _repoWSI.GetWSIs();
             //model.Reglaments = _repoReglaments.GetAllReglaments();
             return View(model);

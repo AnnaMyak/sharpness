@@ -51,9 +51,9 @@ namespace Sharpness.WebApp.Controllers
             model.WSIs = _repoWSIs.GetAllWSIByUserId(UserId);
             model.Reports = _repoReports.GetAllReportsByUserId(UserId);
             model.RecentWSIs = (IList<WSI>)_repoWSIs.GetRecentWSIByUSerId(UserId);
-            
-            ViewBag.CurrentUserId = _repoUsers.GetUserById(UserId);
-            //ViewBag.CurrentUserName = _repoUsers.GetUsernameById(UserId);
+
+            ViewBag.CurrentUserId = UserId;
+            ViewBag.CurrentUserName = _repoUsers.GetUserById(UserId).UserName;
             ViewBag.TestTotal = _repoReports.GetTotalNumberOfTestsByUserId(UserId);
             ViewBag.TestTotalThisWeek = _repoReports.GetTotalNumberOfTestsForLastWeekByUserId(UserId);
             ViewBag.TestTotalThisMonth = _repoReports.GetTotalNumberOfTestsForLastMonthByUserId(UserId);

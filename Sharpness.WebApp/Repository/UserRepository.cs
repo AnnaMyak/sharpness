@@ -46,8 +46,7 @@ namespace Sharpness.WebApp.Repository
             _appContext.Users.Remove(_appContext.Users.Find(UserId));
             _appContext.SaveChanges();
 
-
-           
+   
 
 
         }
@@ -94,7 +93,7 @@ namespace Sharpness.WebApp.Repository
         public string GetUsernameById(string UserId)
         {
             var _context = new ApplicationDbContext();
-            return _context.Users.Where(u => u.Id == UserId).First().UserName;
+            return _context.Users.Find(UserId).UserName;
         }
     }
 }

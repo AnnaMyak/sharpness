@@ -28,7 +28,9 @@ namespace Sharpness.WebApp.Models
         public Tissue Tissue { get; set; }
         public Report Report { get; set; }
         public Reglament Reglament { get; set; }
-        public UserModel User { get; set; }
+
+        
+        
         
         
     }

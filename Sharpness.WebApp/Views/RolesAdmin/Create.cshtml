@@ -2,40 +2,52 @@
 
 @{
     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
 }
 
-<h2>Create.</h2>
 
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card" ">
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Role.</h4>
-        <hr />
-        @Html.ValidationSummary(true)
+                <div class="form-horizontal">
+                    
+                    @Html.ValidationSummary(true)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Name)
-            </div>
-        </div>
+                    <div class="form-group">
+                        
+                        <div class="col-md-10">
+                            <br />
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder="please input a role name" })
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <br />
+                            <input type="submit" value="Create" class="btn btn-success btn-sm" />
+                            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-sm" })
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            }
+
             </div>
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
+           
+
+
+
+
+            <script src="~/Scripts/jquery.validate.js"></script>
