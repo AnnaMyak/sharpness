@@ -1,0 +1,111 @@
+﻿@model Sharpness.WebApp.Models.SharpnessViewModels
+@{
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+
+}
+
+<div class="col-md-6 col-lg-3">
+    <div class="card bg-flat-color-1 text-light">
+        <div class="card-body">
+            <div class="h4 m-0">Current User</div>
+            <div>@ViewBag.CurrentUserId</div>
+            
+        </div>
+    </div>
+</div>
+<div class="col-md-6 col-lg-3">
+    <div class="card bg-flat-color-1 text-light">
+        <div class="card-body">
+            <div class="h4 m-0">My tests total</div>
+            <div>@ViewBag.TestTotal</div>
+        </div>
+    </div>
+</div>
+<!--/.col-->
+<div class="col-md-6 col-lg-3">
+    <div class="card bg-flat-color-1 text-light">
+        <div class="card-body">
+            <div class="h4 m-0">My tests this week</div>
+            <div>@ViewBag.TestTotalThisWeek</div>
+        </div>
+    </div>
+</div><!--/.col-->
+<div class="col-md-6 col-lg-3">
+    <div class="card bg-flat-color-1 text-light">
+        <div class="card-body">
+            <div class="h4 m-0">My tests this month</div>
+            <div>@ViewBag.TestTotalThisMonth</div>
+        </div>
+    </div>
+</div><!--/.col-->
+<div class="col-md-6 col-lg-3">
+    <div class="card bg-flat-color-1 text-light">
+        <div class="card-body">
+            <div class="h4 m-0">My test this year</div>
+            <div>@ViewBag.TestTotalThisYear</div>
+        </div>
+    </div>
+</div><!--/.col-->
+
+
+
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-header">
+            <strong class="card-title">My recente tests</strong>
+
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titel</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Creation</th>
+                        <th scope="col">Report</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int i = 1;
+                        foreach (var item in Model.RecentWSIs)
+                        {
+                            <tr>
+                                <th scope="row">@i</th>
+
+                                <td>@item.Titel</td>
+                                <td>@item.Description</td>
+                                <td>@item.Creation</td>
+                                <td>
+                                    <i class="fa fa-star"></i>  @Html.ActionLink("To Report", "WSIToReport", "Dashboard", new { WSIId = item.WSIId }, null)
+                                </td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-primary btn-sm" onclick="location.href='@Url.Action("AllMyTests", "Dashboard")'">
+                <i class="fa fa-star">
+                </i>&nbsp; All My Tests
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 col-lg-3">
+    <div class="card bg-flat-color-3 text-light">
+        <div class="card-body">
+            <div class="h4 m-0">Positive tests</div>
+            <div>@ViewBag.PositiveTests</div>
+        </div>
+    </div>
+</div><!--/.col-->
+<div class="col-md-6 col-lg-3">
+    <div class="card bg-flat-color-4 text-light">
+        <div class="card-body">
+            <div class="h4 m-0">Negative tests</div>
+            <div>@ViewBag.NegativeTests</div>
+        </div>
+    </div>
+</div><!--/.col-->

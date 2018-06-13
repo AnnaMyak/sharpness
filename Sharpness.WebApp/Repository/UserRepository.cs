@@ -47,7 +47,7 @@ namespace Sharpness.WebApp.Repository
             _appContext.SaveChanges();
 
 
-            throw new NotImplementedException();
+           
 
 
         }
@@ -91,6 +91,10 @@ namespace Sharpness.WebApp.Repository
             return _context.Users.Where(u => u.UserName == UserName).FirstOrDefault();
         }
 
-
+        public string GetUsernameById(string UserId)
+        {
+            var _context = new ApplicationDbContext();
+            return _context.Users.Where(u => u.Id == UserId).First().UserName;
+        }
     }
 }

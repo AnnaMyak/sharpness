@@ -18,6 +18,7 @@ namespace Sharpness.WebApp.Controllers
         //private IW _userRepo= new UserRepository();
         private IWSIRepository _repoWSIs= new WSIRepository();
         private IReportRepository _repoReports = new ReportRepository();
+        private IUserRepository _repoUsers = new UserRepository();
         private SharpnessViewModels model;
 
         // GET: Dashboard
@@ -36,6 +37,29 @@ namespace Sharpness.WebApp.Controllers
             ViewBag.TestTotalThisYear = _repoReports.GetTotalNumberOfTestsForLastYearByUserId(User.Identity.GetUserId());
             ViewBag.NegativeTests = _repoReports.GetTotalNumberOfNegativeTestsByUserId(User.Identity.GetUserId());
             ViewBag.PositiveTests = _repoReports.GetTotalNumberOfPositiveTestsByUserId(User.Identity.GetUserId());
+            return View(model);
+        }
+
+
+
+
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult AdminToUserDashboard(string UserId)
+        {
+            model = new SharpnessViewModels();
+            model.WSIs = _repoWSIs.GetAllWSIByUserId(UserId);
+            model.Reports = _repoReports.GetAllReportsByUserId(UserId);
+            model.RecentWSIs = (IList<WSI>)_repoWSIs.GetRecentWSIByUSerId(UserId);
+            
+            ViewBag.CurrentUserId = _repoUsers.GetUserById(UserId);
+            //ViewBag.CurrentUserName = _repoUsers.GetUsernameById(UserId);
+            ViewBag.TestTotal = _repoReports.GetTotalNumberOfTestsByUserId(UserId);
+            ViewBag.TestTotalThisWeek = _repoReports.GetTotalNumberOfTestsForLastWeekByUserId(UserId);
+            ViewBag.TestTotalThisMonth = _repoReports.GetTotalNumberOfTestsForLastMonthByUserId(UserId);
+            ViewBag.TestTotalThisYear = _repoReports.GetTotalNumberOfTestsForLastYearByUserId(UserId);
+            ViewBag.NegativeTests = _repoReports.GetTotalNumberOfNegativeTestsByUserId(UserId);
+            ViewBag.PositiveTests = _repoReports.GetTotalNumberOfPositiveTestsByUserId(UserId);
             return View(model);
         }
         [Authorize]

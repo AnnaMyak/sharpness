@@ -15,6 +15,7 @@ namespace Sharpness.WebApp.Repository
         ApplicationUser GetUserById(string Id);
         ApplicationUser GetUserByUserName(string UserName);
         ApplicationUser GetUserByEmail(string Email);
+        string GetUsernameById(string UserId);
         void DeleteUserById(string UserId); 
 
        
